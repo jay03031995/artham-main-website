@@ -1,0 +1,172 @@
+{
+  "theme": "LIGHT",
+  "archetype": "Organic & Earthy",
+  "colors": {
+    "primary": "#844d28",
+    "background_main": "#efdfc8",
+    "background_dark": "#483f37",
+    "accent_gold": "#B8894A",
+    "text_dark": "#000000",
+    "text_light": "#efdfc8",
+    "border_color": "rgba(132, 77, 40, 0.2)"
+  },
+  "typography": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Raleway:wght@300;400&family=Tiro+Devanagari+Hindi&display=swap",
+    "font_families": {
+      "primary_logo": "'Tiro Devanagari Hindi', serif",
+      "headline": "'Playfair Display', serif",
+      "body": "'Poppins', sans-serif",
+      "fine_print": "'Raleway', sans-serif",
+      "secondary": "'Montserrat', sans-serif"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl md:text-7xl tracking-tight leading-none",
+      "h2": "text-3xl sm:text-4xl md:text-5xl tracking-tight",
+      "h3": "text-2xl sm:text-3xl",
+      "body": "text-base md:text-lg leading-relaxed",
+      "overline": "text-sm uppercase tracking-[0.2em]"
+    }
+  },
+  "layout_blueprint": {
+    "sections": [
+      {
+        "id": "hero",
+        "purpose": "Brand Intro",
+        "style": "min-h-[90vh] flex flex-col justify-center items-center text-center px-4 bg-background_main",
+        "content": "Devanagari 'अर्थम्' and English Wordmark 'Artham'. Tagline: 'Where Science meets soulful Care'. Primary CTAs: Book Consultation & Call Now.",
+        "motion": "Slow fade in, subtle upward translation. Staggered reveal for text."
+      },
+      {
+        "id": "brand_story",
+        "purpose": "Meaning & Origin",
+        "style": "py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background_main text-text_dark",
+        "content": "Text-focused, editorial layout. Explaining 'Artha' (purpose, worth). Quiet room feel.",
+        "motion": "Scroll-triggered fade-in. Text lines translate up."
+      },
+      {
+        "id": "philosophy",
+        "purpose": "Core Values",
+        "style": "py-24 md:py-32 px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-12 bg-background_dark text-text_light",
+        "content": "Holistic integration of orthopedics and aesthetics. 'Body as a living narrative'. Not fixing flaws but restoring natural alignment. Includes one serene image.",
+        "motion": "Parallax image. Staggered text block."
+      },
+      {
+        "id": "interstitial_1",
+        "purpose": "Breathing Room",
+        "style": "py-32 flex justify-center bg-background_main",
+        "content": "A singular aesthetic image (like the lotus bud) with a short quote or expansive white space.",
+        "motion": "Slow scale effect on image."
+      },
+      {
+        "id": "chapter_aesthetique",
+        "purpose": "Clinic 1 Details",
+        "style": "py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background_main grid grid-cols-1 md:grid-cols-2 gap-16 items-center text-text_dark",
+        "content": "Artham Aesthetique - Skin and Wellness. Focus on natural beauty, restoration. High quality imagery. Learn More/Book CTA.",
+        "motion": "Fade-in and subtle parallax on the image."
+      },
+      {
+        "id": "chapter_orthocare",
+        "purpose": "Clinic 2 Details",
+        "style": "py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background_dark text-text_light grid grid-cols-1 md:grid-cols-2 gap-16 items-center md:flex-row-reverse",
+        "content": "Asthi Orthocare - Complete orthopedic Clinic with Joint replacement. Focus on precision, alignment, vitality. Learn More/Book CTA.",
+        "motion": "Fade-in and subtle parallax on the image."
+      },
+      {
+        "id": "footer",
+        "purpose": "Contact & Location",
+        "style": "py-20 px-6 md:px-12 bg-primary text-text_light flex flex-col items-center text-center space-y-6",
+        "content": "Logo, Address: Lotus Plaza, near Mithaas Sweets, Hazipur, Sector 104, Noida, UP 201304. Phone: 098119 97993. No nav links.",
+        "motion": "Simple fade in."
+      }
+    ],
+    "global_elements": [
+      {
+        "id": "floating_whatsapp",
+        "position": "fixed bottom-8 right-8 z-50",
+        "style": "bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center cursor-pointer",
+        "icon": "Whatsapp Icon from lucide-react or react-icons"
+      }
+    ]
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-background_main px-8 py-4 rounded-none md:rounded-sm hover:bg-accent_gold transition-colors duration-300 font-secondary tracking-widest text-sm uppercase shadow-sm",
+      "outline": "border border-primary text-primary px-8 py-4 rounded-none md:rounded-sm hover:bg-primary hover:text-background_main transition-colors duration-300 font-secondary tracking-widest text-sm uppercase"
+    },
+    "quotes": {
+      "style": "font-headline text-3xl md:text-5xl italic text-primary border-l-4 border-accent_gold pl-8 py-4 my-8"
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "patterns": {
+      "fade_up": {
+        "initial": { "opacity": 0, "y": 40 },
+        "whileInView": { "opacity": 1, "y": 0 },
+        "viewport": { "once": true, "margin": "-100px" },
+        "transition": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1] }
+      },
+      "stagger_children": {
+        "initial": { "opacity": 0 },
+        "whileInView": { "opacity": 1 },
+        "viewport": { "once": true, "margin": "-100px" },
+        "transition": { "staggerChildren": 0.2 }
+      },
+      "parallax_image": {
+        "initial": { "scale": 1.05 },
+        "whileInView": { "scale": 1 },
+        "viewport": { "once": true, "margin": "-100px" },
+        "transition": { "duration": 1.5, "ease": "easeOut" }
+      }
+    }
+  },
+  "image_urls": [
+    {
+      "url": "https://images.pexels.com/photos/28226118/pexels-photo-28226118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Lotus bud on dark background, symbolizing alignment and care",
+      "category": "hero_or_interstitial"
+    },
+    {
+      "url": "https://images.pexels.com/photos/27118568/pexels-photo-27118568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "White Lotus blooming, representing natural beauty and harmony",
+      "category": "philosophy_section"
+    },
+    {
+      "url": "https://images.pexels.com/photos/8101673/pexels-photo-8101673.jpeg",
+      "description": "Skincare serum and natural wellness aesthetic, earthy tones",
+      "category": "chapter_aesthetique"
+    },
+    {
+      "url": "https://images.pexels.com/photos/4857813/pexels-photo-4857813.jpeg",
+      "description": "Eucalyptus branch and serum bottle, calm wellness",
+      "category": "chapter_aesthetique"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1648638810948-f3bf2cccdde9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwzfHxwaHlzaWNhbCUyMHRoZXJhcHklMjBoYW5kc3xlbnwwfHx8fDE3ODI5Mzc3NTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Physical therapy hands providing care, black and white / neutral",
+      "category": "chapter_orthocare"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1645005513713-9e2b92a687d3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxwaHlzaWNhbCUyMHRoZXJhcHklMjBoYW5kc3xlbnwwfHx8fDE3ODI5Mzc3NTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Physical therapy guided session, restoring alignment",
+      "category": "chapter_orthocare"
+    },
+    {
+      "url": "https://images.pexels.com/photos/7789603/pexels-photo-7789603.jpeg",
+      "description": "Modern minimalist medical office interior, sophisticated environment",
+      "category": "brand_story_or_background"
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Do NOT use any purple, violet, or generic default Tailwind colors. Strictly adhere to the provided warm earthy palette: #844d28, #efdfc8, #483f37, #B8894A.",
+    "Do NOT use 'Inter', 'Roboto', or 'Open Sans'. Strictly import and use Tiro Devanagari Hindi, Playfair Display, Poppins, Raleway, and Montserrat.",
+    "Include the Devanagari text 'अर्थम्' alongside the English wordmark 'Artham' prominently in the hero section. Both should be elegant and spaced nicely.",
+    "Implement scroll-driven animations heavily using framer-motion. The experience should feel unhurried, like walking through an editorial museum.",
+    "For CTA buttons, use elegant shapes styled with the Burma Teak (#844d28) color. Maintain sharp or slightly rounded corners (rounded-none or rounded-sm).",
+    "Do NOT include a top navigation bar / menu. The user explicitly stated 'No menu required'.",
+    "Ensure all interactive elements have a `data-testid` attribute (e.g., `data-testid=\"book-consultation-btn\"`).",
+    "In the Footer, display the specific given Address and Phone number (Call & WhatsApp) clearly. Do not use placeholder text.",
+    "Use a pure .js (React) component structure, avoid .tsx since the environment is standard React/JS.",
+    "Make the WhatsApp button floating on the bottom right and persistent."
+  ]
+}
