@@ -5,6 +5,20 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
+  safelist: [
+    "text-armadillo/85",
+    "text-armadillo/80",
+    "text-armadillo/70",
+    "text-armadillo/60",
+    "text-arabian/85",
+    "text-arabian/80",
+    "text-arabian/70",
+    "text-arabian/60",
+    "border-armadillo/20",
+    "border-armadillo/30",
+    "border-arabian/20",
+    "border-arabian/30",
+  ],
   theme: {
     extend: {
       borderRadius: {
