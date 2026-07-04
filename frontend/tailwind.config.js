@@ -13,6 +13,34 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
+        burma: {
+          DEFAULT: '#844d28',
+          50: '#f5eee6',
+          100: '#e2c8ad',
+          500: '#844d28',
+          600: '#6d3f20',
+          700: '#5a331a',
+        },
+        armadillo: {
+          DEFAULT: '#483f37',
+          50: '#e8e4de',
+          100: '#c9c0b5',
+          500: '#483f37',
+          600: '#3a332d',
+        },
+        arabian: {
+          DEFAULT: '#efdfc8',
+          50: '#faf3e6',
+          100: '#efdfc8',
+          200: '#e7d1b3',
+        },
+        gold: {
+          DEFAULT: '#b8894a',
+          400: '#c99a5b',
+          500: '#b8894a',
+          600: '#9a7239',
+        },
+        ink: '#1a1512',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -53,6 +81,16 @@ module.exports = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
         }
+      },
+      fontFamily: {
+        devanagari: ['"Tiro Devanagari Hindi"', 'serif'],
+        headline: ['"Playfair Display"', 'serif'],
+        body: ['Poppins', 'sans-serif'],
+        fine: ['Raleway', 'sans-serif'],
+        secondary: ['Montserrat', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       keyframes: {
         'accordion-down': {

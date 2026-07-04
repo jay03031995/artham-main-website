@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend-only Playwright testing of the Artham landing page. All requested features verified: hero (Devanagari अर्थम्, Artham wordmark, tagline, both CTAs), scroll journey with all chapters (Brand Story, Lotus Interstitial, Philosophy, Aesthetique, Orthocare Interstitial, Asthi Orthocare, Closing CTA, Footer), floating WhatsApp button, footer address/phone/WhatsApp links, no top navigation, and responsive layout at 1440x900 and 375x812 without horizontal overflow. No console/page errors. All 4 images loaded successfully.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_features": [
+    "Hero section: अर्थम् devanagari, Artham wordmark, tagline 'Where Science meets Soulful Care.' — visible",
+    "Hero CTAs 'Book a Consultation' and 'Call Now' visible; Book opens https://wa.me/919811997993?text=... (verified by hooking window.open); Call button has onClick handler that sets window.location.href = tel:+919811997993",
+    "All scroll sections present in order: interstitial-lotus, philosophy-section, chapter-aesthetique, interstitial-orthocare, chapter-orthocare, closing-cta-section, footer-section",
+    "chapter-aesthetique: name 'Artham Aesthetique', tagline 'Skin & Wellness — the natural, drawn out.', all 6 services rendered (Advanced Skin Care, Anti-Ageing, Laser & Lightwork, Hair Restoration, Body Contouring, Wellness Rituals), book/call CTAs visible",
+    "chapter-orthocare: name 'Asthi Orthocare', tagline mentions joint replacement, Joint Replacement service present, book/call CTAs visible",
+    "closing-cta-section: closing-book-btn and closing-call-btn visible",
+    "footer-section: full address inside data-testid=footer-address (Lotus Plaza, near Mithaas Sweets, Hazipur, Sector 104, Noida, Uttar Pradesh 201304); footer-call-link tel:+919811997993 with visible text '098119 97993'; footer-whatsapp-link -> wa.me/919811997993; both clinic names 'Artham Aesthetique' & 'Asthi Orthocare' present",
+    "whatsapp-float-btn fixed bottom-right, visible at hero and at footer scroll positions, href -> wa.me/919811997993",
+    "No <nav> or <header> element on the page (count = 0) — no top menu",
+    "No horizontal overflow at desktop 1440x900 or mobile 375x812; mobile hero and floating WhatsApp render correctly",
+    "All 4 images loaded (complete=true, naturalWidth>0) — no broken images",
+    "No console errors, no page errors"
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: In ClinicChapter.jsx, Tailwind classes like `${textPrimary}/85` use runtime string interpolation with opacity modifier which Tailwind JIT will NOT detect at build time; the opacity variant may not actually apply. Consider hard-coding these color/opacity combinations or safelisting them.",
+    "Minor: hero Call Now uses window.location.href = 'tel:...' rather than a native <a href='tel:...'>. Works functionally but a real <a> would be more accessible/testable. Same for other Call/Book buttons."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Landing page is fully static (no backend calls). All data-testids used in the request are wired correctly. When asserting service list text with page.inner_text, wait ~1.5s after scroll for framer-motion whileInView to complete, or use evaluate() on textContent to bypass animation opacity."
+}
