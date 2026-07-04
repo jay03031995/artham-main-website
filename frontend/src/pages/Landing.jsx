@@ -34,6 +34,7 @@ const Landing = () => {
             {/* Chapter 1: Artham Aesthetique */}
             <ClinicChapter
                 testId="chapter-aesthetique"
+                anchorId="aesthetique"
                 number="III"
                 chapterLabel="Chapter One — Aesthetique"
                 subtitle="Artham · Aesthetique"
@@ -48,8 +49,8 @@ const Landing = () => {
                     "Body Contouring",
                     "Wellness Rituals",
                 ]}
-                imageUrl="https://images.pexels.com/photos/8101673/pexels-photo-8101673.jpeg"
-                imageAlt="Warm-toned skincare and wellness aesthetic"
+                imageUrl="https://customer-assets.emergentagent.com/job_artham-intro/artifacts/bxwex4yv_image.png"
+                imageAlt="The Artham Aesthetique treatment room — warm-lit, considered, unhurried."
                 tone="light"
             />
 
@@ -66,6 +67,7 @@ const Landing = () => {
             {/* Chapter 2: Asthi Orthocare */}
             <ClinicChapter
                 testId="chapter-orthocare"
+                anchorId="orthocare"
                 number="IV"
                 chapterLabel="Chapter Two — Orthocare"
                 subtitle="Asthi · अस्थि · Bone"
@@ -80,8 +82,8 @@ const Landing = () => {
                     "Fracture Management",
                     "Physiotherapy",
                 ]}
-                imageUrl="https://images.unsplash.com/photo-1648638810948-f3bf2cccdde9?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200"
-                imageAlt="Careful, precise physical therapy hands at work"
+                imageUrl="https://customer-assets.emergentagent.com/job_artham-intro/artifacts/0iw0g0dq_image.png"
+                imageAlt="The Asthi Orthocare reception — the Artham lotus mark, physiotherapy suite visible beyond."
                 tone="dark"
                 reverse={true}
             />

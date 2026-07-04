@@ -7,18 +7,9 @@ const Hero = () => {
     const yBg = useTransform(scrollY, [0, 500], [0, 100]);
     const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
-    const handleCall = () => {
-        window.location.href = "tel:+919811997993";
-    };
-
-    const handleBook = () => {
-        const message = encodeURIComponent(
-            "Hello Artham, I would like to book a consultation."
-        );
-        window.open(
-            `https://wa.me/919811997993?text=${message}`,
-            "_blank"
-        );
+    const scrollToSection = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     return (
@@ -49,19 +40,20 @@ const Hero = () => {
                 className="relative z-10 flex flex-col items-center text-center"
             >
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{
                         duration: 1.4,
                         ease: [0.22, 1, 0.36, 1],
                         delay: 0.2,
                     }}
+                    className="mb-10 md:mb-12"
                 >
                     <LotusMark
-                        size={80}
-                        stroke="#844d28"
-                        accent="#b8894a"
-                        className="mb-8 md:mb-10"
+                        size={140}
+                        rounded="rounded-md"
+                        className="shadow-[0_20px_50px_-15px_rgba(132,77,40,0.35)]"
+                        alt="Artham — Orthopedic · Aesthetic · Wellness"
                     />
                 </motion.div>
 
@@ -74,7 +66,7 @@ const Hero = () => {
                         delay: 0.5,
                     }}
                     className="font-devanagari text-burma mb-3"
-                    style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+                    style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
                 >
                     अर्थम्
                 </motion.div>
@@ -88,11 +80,20 @@ const Hero = () => {
                         ease: [0.22, 1, 0.36, 1],
                         delay: 0.7,
                     }}
-                    className="font-headline text-armadillo tracking-[0.2em] uppercase mb-8"
-                    style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+                    className="font-headline text-armadillo tracking-[0.2em] uppercase mb-4"
+                    style={{ fontSize: "clamp(2.25rem, 5.5vw, 4rem)" }}
                 >
                     Artham
                 </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.85 }}
+                    className="font-secondary text-[11px] md:text-xs uppercase tracking-[0.4em] text-burma mb-6"
+                >
+                    Orthopedic · Aesthetic · Wellness
+                </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, scaleX: 0 }}
@@ -114,10 +115,19 @@ const Hero = () => {
                         ease: [0.22, 1, 0.36, 1],
                         delay: 1.1,
                     }}
-                    className="font-headline italic text-armadillo max-w-2xl leading-relaxed mb-14"
+                    className="font-headline italic text-armadillo max-w-2xl leading-relaxed mb-4"
                     style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)" }}
                 >
                     Where Science meets Soulful Care.
+                </motion.p>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="font-fine text-armadillo/70 text-sm md:text-base italic tracking-wide mb-12"
+                >
+                    Aligning Movement, Enhancing Confidence.
                 </motion.p>
 
                 <motion.div
@@ -131,20 +141,28 @@ const Hero = () => {
                     className="flex flex-col sm:flex-row items-center gap-4"
                 >
                     <button
-                        data-testid="hero-book-consultation-btn"
-                        onClick={handleBook}
+                        data-testid="hero-aesthetique-btn"
+                        onClick={() => scrollToSection("aesthetique")}
                         className="group relative overflow-hidden bg-burma text-arabian px-9 py-4 font-secondary text-[11px] uppercase tracking-[0.3em] hover:bg-armadillo transition-colors duration-500"
                     >
-                        <span className="relative z-10">
-                            Book a Consultation
+                        <span className="relative z-10 inline-flex items-center gap-3">
+                            Artham Aesthetique
+                            <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-500">
+                                →
+                            </span>
                         </span>
                     </button>
                     <button
-                        data-testid="hero-call-now-btn"
-                        onClick={handleCall}
+                        data-testid="hero-orthocare-btn"
+                        onClick={() => scrollToSection("orthocare")}
                         className="group border border-burma/60 text-burma px-9 py-4 font-secondary text-[11px] uppercase tracking-[0.3em] hover:bg-burma hover:text-arabian transition-colors duration-500"
                     >
-                        Call Now
+                        <span className="inline-flex items-center gap-3">
+                            Asthi Orthocare
+                            <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-500">
+                                →
+                            </span>
+                        </span>
                     </button>
                 </motion.div>
             </motion.div>

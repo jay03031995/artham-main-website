@@ -15,6 +15,7 @@ const ClinicChapter = ({
     tone = "light",
     reverse = false,
     testId,
+    anchorId,
 }) => {
     const ref = React.useRef(null);
     const { scrollYProgress } = useScroll({
@@ -55,8 +56,9 @@ const ClinicChapter = ({
     return (
         <section
             ref={ref}
+            id={anchorId}
             data-testid={testId}
-            className={`relative py-32 md:py-48 px-6 md:px-12 lg:px-24 ${bgClass} overflow-hidden`}
+            className={`relative py-32 md:py-48 px-6 md:px-12 lg:px-24 ${bgClass} overflow-hidden scroll-mt-20`}
         >
             <div className="max-w-7xl mx-auto">
                 <ChapterMarker

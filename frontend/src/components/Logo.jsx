@@ -1,62 +1,28 @@
 import React from "react";
 
-// Artham Lotus-with-figure inspired mark (custom SVG, not the exact brand asset).
-// The user did not upload the vector logo — this is a respectful stylised version
-// referencing the brand book (lotus symbolising alignment; figure at the centre).
+// Actual Artham logo asset (uploaded by client — lotus + human figure, white on Burma Teak).
+const LOGO_URL =
+    "https://customer-assets.emergentagent.com/job_artham-intro/artifacts/ktst3x2t_Untitled%20design%20%281%29.png";
+
+// Logo rendered as an image tile. Because the source PNG is a solid Burma-Teak
+// square with the white mark, we render it as an intentional tile — sharp,
+// contained, and elegant on any background.
 export const LotusMark = ({
     size = 64,
-    stroke = "#844d28",
-    accent = "#b8894a",
     className = "",
+    rounded = "rounded-sm",
+    alt = "Artham",
 }) => {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
+        <img
+            src={LOGO_URL}
+            alt={alt}
             width={size}
             height={size}
-            viewBox="0 0 120 120"
-            fill="none"
-            className={className}
-            aria-hidden="true"
-        >
-            {/* Outer petals */}
-            <path
-                d="M60 20 C50 40 42 55 42 70 C42 82 50 92 60 92 C70 92 78 82 78 70 C78 55 70 40 60 20 Z"
-                stroke={stroke}
-                strokeWidth="1.2"
-                fill="none"
-            />
-            {/* Left petal */}
-            <path
-                d="M28 42 C32 55 40 66 52 74 C56 68 54 60 48 54 C42 48 34 44 28 42 Z"
-                stroke={stroke}
-                strokeWidth="1.2"
-                fill="none"
-            />
-            {/* Right petal */}
-            <path
-                d="M92 42 C88 55 80 66 68 74 C64 68 66 60 72 54 C78 48 86 44 92 42 Z"
-                stroke={stroke}
-                strokeWidth="1.2"
-                fill="none"
-            />
-            {/* Outer arc / cradle */}
-            <path
-                d="M18 78 Q60 108 102 78"
-                stroke={accent}
-                strokeWidth="1"
-                fill="none"
-                strokeLinecap="round"
-            />
-            {/* Human figure (head + body) */}
-            <circle cx="60" cy="52" r="4" fill={stroke} />
-            <path
-                d="M60 58 L60 78 M52 66 L68 66"
-                stroke={stroke}
-                strokeWidth="1.6"
-                strokeLinecap="round"
-            />
-        </svg>
+            className={`${rounded} object-cover ${className}`}
+            style={{ width: size, height: size }}
+            loading="eager"
+        />
     );
 };
 
