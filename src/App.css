@@ -1,0 +1,7 @@
+.App {
+    min-height: 100vh;
+    background: var(--arabian-white);
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+}

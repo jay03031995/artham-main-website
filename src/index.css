@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500&family=Raleway:wght@300;400;500&family=Tiro+Devanagari+Hindi&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --burma-teak: #844d28;
+    --arabian-white: #efdfc8;
+    --armadillo: #483f37;
+    --coronation-gold: #b8894a;
+    --summer-peach: #f5e6d0;
+    --ink: #1a1512;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--arabian-white);
+    color: var(--ink);
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--burma-teak);
+    color: var(--arabian-white);
+}
+
+.font-devanagari {
+    font-family: "Tiro Devanagari Hindi", serif;
+}
+
+.font-headline {
+    font-family: "Playfair Display", serif;
+}
+
+.font-body {
+    font-family: "Poppins", sans-serif;
+}
+
+.font-fine {
+    font-family: "Raleway", sans-serif;
+}
+
+.font-secondary {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Museum-like grain texture overlay */
+.grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.08;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.hairline {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--burma-teak),
+        transparent
+    );
+    opacity: 0.4;
+}
+
+.hairline-vertical {
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--burma-teak),
+        transparent
+    );
+    opacity: 0.4;
+}
+
+/* Loading dots for CTAs */
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: currentColor;
+    margin: 0 6px;
+    vertical-align: middle;
+    opacity: 0.6;
+}
+
+/* Slow marquee for chapter markers */
+@keyframes drift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-drift {
+    animation: drift 4s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Custom scroll bar tuned to earthy palette */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--arabian-white);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--burma-teak);
+    border-radius: 999px;
+    opacity: 0.4;
+}
+
+@layer base {
+    :root {
+        --background: 39 55% 86%;
+        --foreground: 25 15% 12%;
+        --card: 39 55% 90%;
+        --card-foreground: 25 15% 12%;
+        --popover: 39 55% 86%;
+        --popover-foreground: 25 15% 12%;
+        --primary: 22 53% 33%;
+        --primary-foreground: 39 55% 91%;
+        --secondary: 30 12% 26%;
+        --secondary-foreground: 39 55% 91%;
+        --muted: 30 20% 78%;
+        --muted-foreground: 25 15% 30%;
+        --accent: 32 44% 51%;
+        --accent-foreground: 39 55% 91%;
+        --destructive: 0 62% 40%;
+        --destructive-foreground: 39 55% 91%;
+        --border: 22 30% 60%;
+        --input: 22 30% 60%;
+        --ring: 22 53% 33%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+}
