@@ -49,7 +49,8 @@ const Footer = () => {
                         <img
                             src={ASSETS.logo}
                             alt="Artham"
-                            className="w-24 md:w-28 h-auto mb-6 opacity-95"
+                            className="w-28 md:w-32 h-auto mb-6"
+                            style={{ mixBlendMode: "screen" }}
                         />
                         <h3 className="font-headline text-arabian text-2xl md:text-3xl mb-4 leading-tight">
                             {BRAND.tagline}.

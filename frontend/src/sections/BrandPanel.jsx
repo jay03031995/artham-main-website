@@ -89,19 +89,12 @@ const BrandPanel = ({
                             reverse ? "md:[direction:ltr]" : ""
                         }`}
                     >
-                        <div className="relative aspect-[4/5] overflow-hidden">
+                        <div className="relative aspect-[4/5] overflow-hidden bg-black">
                             <img
                                 src={imageUrl}
                                 alt={imageAlt}
-                                className="absolute inset-0 w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-contain object-bottom"
                                 loading="lazy"
-                            />
-                            <div
-                                className={`absolute inset-0 pointer-events-none ${
-                                    tone === "dark"
-                                        ? "bg-gradient-to-t from-armadillo/60 to-transparent"
-                                        : "bg-gradient-to-t from-arabian/40 to-transparent"
-                                }`}
                             />
                             {/* Corner frames */}
                             <span

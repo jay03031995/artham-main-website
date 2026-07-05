@@ -2,8 +2,12 @@
 // Keep imports here so section files stay clean.
 
 export const ASSETS = {
-    // New brand logo (copper/bronze lotus + अर्थम् Devanagari). Transparent PNG.
+    // New brand logo — dark variant (black BG). We use mix-blend-mode to make
+    // it appear on any background cleanly.
     logo:
+        "https://customer-assets.emergentagent.com/job_artham-intro/artifacts/0w2dt4x4_Artham%20logo2%20.png",
+    // Fallback: white-BG variant of same logo (kept in case we need it).
+    logoLight:
         "https://customer-assets.emergentagent.com/job_artham-intro/artifacts/osgze0xv_Artham%20logo%20.png",
 
     // Editorial service imagery

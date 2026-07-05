@@ -66,16 +66,16 @@ const Doctors = () => {
                             }}
                             className="group"
                         >
-                            {/* Portrait */}
-                            <div className="relative aspect-[4/5] overflow-hidden bg-armadillo mb-8">
+                            {/* Portrait — full figure visible. Container BG
+                                matches the portrait's black studio backdrop
+                                so the subject floats without any hard edge. */}
+                            <div className="relative aspect-[4/5] overflow-hidden mb-8 bg-black">
                                 <img
                                     src={d.image}
                                     alt={d.name}
-                                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                                    className="absolute inset-0 w-full h-full object-contain object-bottom transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
                                     loading="lazy"
                                 />
-                                {/* Warm wash gradient (light warm on top for lift) */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-armadillo/50 via-transparent to-transparent pointer-events-none" />
                                 <span className="absolute top-4 left-4 font-secondary text-[10px] uppercase tracking-[0.4em] text-arabian/90 bg-armadillo/60 backdrop-blur-sm px-3 py-1.5">
                                     {d.clinic}
                                 </span>

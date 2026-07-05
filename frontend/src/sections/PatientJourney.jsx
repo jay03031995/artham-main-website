@@ -83,17 +83,17 @@ const PatientJourney = () => {
                                 delay: 0.1 * i,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
-                            className="group relative overflow-hidden aspect-[5/6] text-left"
+                            className="group relative overflow-hidden aspect-[5/6] text-left bg-black"
                         >
                             {/* Image */}
                             <img
                                 src={c.image}
                                 alt={c.name}
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
+                                className="absolute inset-0 w-full h-full object-contain object-bottom transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
                                 loading="lazy"
                             />
-                            {/* Warm overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-armadillo via-armadillo/40 to-transparent pointer-events-none" />
+                            {/* Warm overlay (bottom-only, so subject stays fully visible) */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none" />
 
                             {/* Corner frames */}
                             <span className="absolute top-6 left-6 w-8 h-8 border-l border-t border-arabian" />
