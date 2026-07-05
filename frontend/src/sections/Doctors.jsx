@@ -1,6 +1,5 @@
 import React from "react";
 import { DOCTORS } from "@/lib/content";
-import BgStripper from "@/components/BgStripper";
 
 /**
  * Doctors — ported from client reference.
@@ -8,9 +7,9 @@ import BgStripper from "@/components/BgStripper";
  * Two editorial cards on a Summer-Peach surface. The left cell layers:
  *  1. An SVG "cameo" (peach + tinted ellipse + italic monogram) as the
  *     always-present fallback / backdrop.
- *  2. On top, the actual doctor photograph via BgStripper — the black
- *     studio background is stripped at runtime so the subject appears to
- *     float on the peach cameo (no hard silhouette rectangle).
+ *  2. On top, the actual doctor photograph as a plain <img>. Source PNGs
+ *     already ship with a transparent background, so no client-side
+ *     processing is needed — the subject sits directly on the cameo.
  * Right cell holds the brand tag, name, italic role, bio, and hairline.
  */
 const TONES = {
@@ -102,8 +101,9 @@ const Doctors = () => {
                                             {initials(d.name)}
                                         </text>
                                     </svg>
-                                    {/* Actual portrait, black BG removed */}
-                                    <BgStripper
+                                    {/* Actual portrait — transparent PNG,
+                                        rendered as-is over the cameo. */}
+                                    <img
                                         src={d.image}
                                         alt={`${d.name}, ${
                                             d.role.split("·")[0].trim()

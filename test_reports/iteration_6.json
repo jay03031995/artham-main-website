@@ -1,0 +1,28 @@
+{
+  "summary": "Verified Doctors section delta: <img> tags now use original transparent PNG asset URLs (not data: URLs). All previous testids intact, no console errors, no horizontal overflow at 1440x900 or 375x812.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Doctors section uses plain <img> with src pointing to customer-assets.emergentagent.com PNGs (omaima%20jawed.png / MANU%20GAUTAM.png). ph-fallback SVG cameo present behind. Split section removed. All iteration_5 testids present.",
+  "verification_details": {
+    "omaima_img_src": "https://customer-assets.emergentagent.com/job_artham-intro/artifacts/0yyw931m_omaima%20jawed.png",
+    "manu_img_src": "https://customer-assets.emergentagent.com/job_artham-intro/artifacts/7i797avs_MANU%20GAUTAM.png",
+    "is_data_url": false,
+    "ph_fallback_present": true,
+    "console_errors": 0,
+    "failed_requests_relevant": 0,
+    "horizontal_overflow_desktop": false,
+    "horizontal_overflow_mobile": false
+  }
+}
