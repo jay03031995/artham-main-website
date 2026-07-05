@@ -1,0 +1,18 @@
+{
+  "summary": "Frontend-only end-to-end test of Artham landing page rewrite. All 17 review-request checkpoints verified via Playwright on desktop (1440x900) and mobile (375x812). Zero console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All data-testid selectors from the spec are present and functional. Verified: title, hero (logo/headline/subheadline/CTA/seed SVG), Discover Our Story smooth-scroll to #journey (scrollY=7099 after click), growth-journey pinned section with story-tree-scene SVG, philosophy w/ 4 value cards, the-split with both tiles clickable (aesth tile navigated to aesthetique section), Aesthetique panel with all 7 categories (Skin/Hair/Face/Laser/Anti-Ageing/Body/Wellness) + CTA that scrolls to #patient-journey, shared-philosophy-bridge circular with 'One Philosophy' text, Orthocare panel with 'Bone. Motion. Dignity.' tagline and Joint Replacement, both doctor cards (Dr. Omaima Jawed & Dr. Manu Gautam), 5 timeline stages (seed/roots/growth/branches/future), 4 stat items animating to correct values (10+/25,000+/50+/02), patient-journey section with both aesth & ortho cards, footer with logo, address (Lotus Plaza, Sector 104, Noida, 201304), contact (098119 97993, tel:+919811997993 & wa.me/919811997993), 5 nav columns, floating WhatsApp button linking to wa.me/919811997993, no top nav element. No horizontal overflow on desktop or mobile (sw==iw==375). Story-tree SVG renders on mobile. Zero console/page errors."
+}

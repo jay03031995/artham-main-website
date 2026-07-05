@@ -129,6 +129,41 @@ body {
     animation: shimmer 3s ease-in-out infinite;
 }
 
+/* Path-draw helper: element must set --draw-length to path length. */
+.draw-path {
+    stroke-dasharray: var(--draw-length, 1000);
+    stroke-dashoffset: var(--draw-length, 1000);
+}
+
+/* Slow ambient sway for leaves / branches */
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-1.5deg);
+    }
+    50% {
+        transform: rotate(1.5deg);
+    }
+}
+.animate-sway {
+    animation: sway 6s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+/* Slow pulse for glowing points (branches, joints) */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+.animate-pulse-glow {
+    animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
 /* Custom scroll bar tuned to earthy palette */
 ::-webkit-scrollbar {
     width: 8px;

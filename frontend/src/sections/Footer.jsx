@@ -1,140 +1,167 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { LotusMark } from "@/components/Logo";
+import { ASSETS, CONTACT, BRAND } from "@/lib/content";
+
+const columns = [
+    {
+        title: "About",
+        items: ["The Philosophy", "The Journey", "The Trunk", "Journal"],
+    },
+    {
+        title: "Brands",
+        items: ["Artham Aesthetique", "Artham Orthocare"],
+    },
+    {
+        title: "Doctors",
+        items: ["Dr. Omaima Jawed", "Dr. Manu Gautam"],
+    },
+    {
+        title: "Blogs",
+        items: ["On Skin", "On Alignment", "On Care", "All Notes"],
+    },
+];
 
 const Footer = () => {
     return (
         <footer
             data-testid="footer-section"
-            className="relative bg-burma text-arabian py-20 md:py-28 px-6 md:px-12 overflow-hidden"
+            className="relative bg-burma text-arabian pt-24 md:pt-32 pb-10 px-6 md:px-12 overflow-hidden"
         >
-            {/* Watermark */}
+            {/* Devanagari watermark */}
             <div
-                className="absolute -bottom-24 -right-24 font-devanagari text-arabian/[0.04] pointer-events-none select-none hidden md:block"
-                style={{ fontSize: "14rem", lineHeight: 1 }}
+                className="absolute -bottom-16 -right-16 font-devanagari text-arabian/[0.04] pointer-events-none select-none hidden md:block"
+                style={{ fontSize: "16rem", lineHeight: 1 }}
                 aria-hidden="true"
             >
                 अर्थम्
             </div>
 
-            <div className="relative max-w-6xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col items-center text-center"
-                >
-                    <LotusMark
-                        size={72}
-                        stroke="#efdfc8"
-                        accent="#b8894a"
-                        className="mb-6"
-                    />
-                    <div
-                        className="font-devanagari text-arabian mb-1"
-                        style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
-                    >
-                        अर्थम्
-                    </div>
-                    <div className="font-headline uppercase tracking-[0.35em] text-arabian text-sm md:text-base">
-                        Artham
-                    </div>
-                    <p className="mt-4 font-headline italic text-arabian/80 text-sm md:text-base">
-                        Where Science meets Soulful Care.
-                    </p>
-                </motion.div>
-
-                <div className="mt-16 h-px w-full bg-arabian/20" />
-
-                <div className="mt-16 grid md:grid-cols-3 gap-12 md:gap-8">
-                    {/* Clinics */}
+            <div className="relative max-w-7xl mx-auto">
+                {/* Top row — logo + signoff */}
+                <div className="grid md:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.9, delay: 0.05 }}
-                        className="text-center md:text-left"
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.9 }}
+                        className="md:col-span-5"
                     >
-                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
-                            The Clinics
-                        </h4>
-                        <p className="font-headline italic text-arabian text-lg md:text-xl leading-relaxed">
-                            Artham Aesthetique
-                        </p>
-                        <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em] mb-4">
-                            Skin & Wellness
-                        </p>
-                        <p className="font-headline italic text-arabian text-lg md:text-xl leading-relaxed">
-                            Asthi Orthocare
-                        </p>
-                        <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em]">
-                            Complete Orthopedic Clinic
+                        <img
+                            src={ASSETS.logo}
+                            alt="Artham"
+                            className="w-24 md:w-28 h-auto mb-6 opacity-95"
+                        />
+                        <h3 className="font-headline text-arabian text-2xl md:text-3xl mb-4 leading-tight">
+                            {BRAND.tagline}.
+                        </h3>
+                        <p className="font-body text-arabian/70 text-sm md:text-base leading-[1.9] max-w-md">
+                            One trunk of trust. Two branches of care.
+                            <br />
+                            An unhurried practice, in the heart of Noida.
                         </p>
                     </motion.div>
 
-                    {/* Address */}
+                    {/* Contact block */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.9, delay: 0.15 }}
-                        className="text-center"
-                        data-testid="footer-address"
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.9, delay: 0.1 }}
+                        className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-10"
                     >
-                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
-                            Visit Us
-                        </h4>
-                        <address className="not-italic font-body text-arabian/85 text-sm md:text-base leading-[1.9]">
-                            Lotus Plaza,
-                            <br />
-                            near Mithaas Sweets, Hazipur,
-                            <br />
-                            Sector 104, Noida,
-                            <br />
-                            Uttar Pradesh 201304
-                        </address>
-                    </motion.div>
-
-                    {/* Contact */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.9, delay: 0.25 }}
-                        className="text-center md:text-right"
-                        data-testid="footer-contact"
-                    >
-                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
-                            Reach Out
-                        </h4>
-                        <a
-                            data-testid="footer-call-link"
-                            href="tel:+919811997993"
-                            className="block font-headline text-arabian text-xl md:text-2xl mb-2 hover:text-gold transition-colors duration-300"
-                        >
-                            098119 97993
-                        </a>
-                        <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em] mb-6">
-                            Call &nbsp;·&nbsp; WhatsApp
-                        </p>
-                        <a
-                            data-testid="footer-whatsapp-link"
-                            href={`https://wa.me/919811997993?text=${encodeURIComponent(
-                                "Hello Artham, I would like to know more."
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
-                        >
-                            Message on WhatsApp →
-                        </a>
+                        <div data-testid="footer-address">
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
+                                Visit Us
+                            </h4>
+                            <address className="not-italic font-body text-arabian/85 text-sm md:text-base leading-[1.9]">
+                                {CONTACT.address.line1},
+                                <br />
+                                {CONTACT.address.line2},
+                                <br />
+                                {CONTACT.address.line3}
+                            </address>
+                        </div>
+                        <div data-testid="footer-contact">
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
+                                Reach Out
+                            </h4>
+                            <a
+                                data-testid="footer-call-link"
+                                href={`tel:${CONTACT.phoneIntl}`}
+                                className="block font-headline text-arabian text-xl md:text-2xl mb-2 hover:text-gold transition-colors duration-300"
+                            >
+                                {CONTACT.phone}
+                            </a>
+                            <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em] mb-6">
+                                Call &nbsp;·&nbsp; WhatsApp
+                            </p>
+                            <a
+                                data-testid="footer-whatsapp-link"
+                                href={`https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+                                    "Hello Artham, I would like to know more."
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
+                            >
+                                Message on WhatsApp →
+                            </a>
+                        </div>
                     </motion.div>
                 </div>
 
-                <div className="mt-20 h-px w-full bg-arabian/20" />
+                {/* Divider */}
+                <div className="h-px w-full bg-arabian/20 mb-16" />
 
-                <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-arabian/60">
+                {/* Nav columns */}
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
+                    {columns.map((c, i) => (
+                        <motion.div
+                            key={c.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-60px" }}
+                            transition={{ duration: 0.8, delay: 0.05 * i }}
+                        >
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
+                                {c.title}
+                            </h4>
+                            <ul className="space-y-3">
+                                {c.items.map((item) => (
+                                    <li key={item}>
+                                        <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
+                                            {item}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    ))}
+                    {/* Social column */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.8, delay: 0.25 }}
+                    >
+                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
+                            Social
+                        </h4>
+                        <ul className="space-y-3">
+                            {["Instagram", "LinkedIn", "YouTube"].map((s) => (
+                                <li key={s}>
+                                    <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
+                                        {s}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                </div>
+
+                {/* Bottom bar */}
+                <div className="h-px w-full bg-arabian/20 mb-8" />
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-arabian/60">
                     <p className="font-fine text-[11px] uppercase tracking-[0.3em]">
                         © {new Date().getFullYear()} Artham. All rights reserved.
                     </p>

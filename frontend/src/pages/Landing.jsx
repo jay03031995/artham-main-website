@@ -1,97 +1,93 @@
 import React, { useEffect } from "react";
 import Hero from "@/sections/Hero";
-import BrandStory from "@/sections/BrandStory";
+import GrowthJourney from "@/sections/GrowthJourney";
 import Philosophy from "@/sections/Philosophy";
-import Interstitial from "@/sections/Interstitial";
-import ClinicChapter from "@/sections/ClinicChapter";
-import ClosingCTA from "@/sections/ClosingCTA";
+import TheSplit from "@/sections/TheSplit";
+import BrandPanel from "@/sections/BrandPanel";
+import SharedPhilosophyBridge from "@/sections/SharedPhilosophyBridge";
+import Doctors from "@/sections/Doctors";
+import JourneyTimeline from "@/sections/JourneyTimeline";
+import Statistics from "@/sections/Statistics";
+import PatientJourney from "@/sections/PatientJourney";
 import Footer from "@/sections/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import {
+    ASSETS,
+    AESTHETIQUE_CATEGORIES,
+    ORTHOCARE_CATEGORIES,
+} from "@/lib/content";
 
 const Landing = () => {
     useEffect(() => {
-        document.title = "Artham — Where Science meets Soulful Care";
+        document.title = "Artham — Meaningful Care. Beautifully Delivered.";
     }, []);
 
     return (
         <main data-testid="landing-page" className="relative bg-arabian">
+            {/* 1. Hero — logo first */}
             <Hero />
 
-            <BrandStory />
+            {/* 2. Growth journey — scroll-pinned tree */}
+            <GrowthJourney />
 
-            {/* Museum-like breathing filler between chapters */}
-            <Interstitial
-                testId="interstitial-lotus"
-                quote="The body is a living narrative. Read it slowly."
-                attribution="The Artham Way"
-                imageUrl="https://images.pexels.com/photos/27118568/pexels-photo-27118568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                imageAlt="A white lotus in bloom, symbolising natural alignment"
-                tone="light"
-            />
-
+            {/* 3. Philosophy — the roots */}
             <Philosophy />
 
-            {/* Chapter 1: Artham Aesthetique */}
-            <ClinicChapter
-                testId="chapter-aesthetique"
+            {/* 4. The Split — trunk divides */}
+            <TheSplit />
+
+            {/* 5. Artham Aesthetique — Chapter IV.a */}
+            <BrandPanel
                 anchorId="aesthetique"
-                number="III"
-                chapterLabel="Chapter One — Aesthetique"
-                subtitle="Artham · Aesthetique"
+                testId="chapter-aesthetique"
+                chapter="Chapter IV"
+                label="Left Branch"
                 name="Artham Aesthetique"
-                tagline="Skin & Wellness — the natural, drawn out."
-                description="Not a promise of change, but a return. Aesthetique is where skin remembers its own light — through evidence-led dermatology, holistic wellness, and treatments considered as carefully as they are delivered. Every session is a quiet conversation between science and the self."
-                services={[
-                    "Advanced Skin Care",
-                    "Anti-Ageing",
-                    "Laser & Lightwork",
-                    "Hair Restoration",
-                    "Body Contouring",
-                    "Wellness Rituals",
-                ]}
-                imageUrl="https://customer-assets.emergentagent.com/job_artham-intro/artifacts/bxwex4yv_image.png"
-                imageAlt="The Artham Aesthetique treatment room — warm-lit, considered, unhurried."
+                tagline="Skin. Hair. Face. Wellness."
+                description="Not a promise of change, but a return. Aesthetique is where skin remembers its own light — through evidence-led dermatology, holistic wellness, and treatments considered as carefully as they are delivered."
+                categories={AESTHETIQUE_CATEGORIES}
+                ctaLabel="Explore Artham Aesthetique"
+                imageUrl={ASSETS.aestheticsHero}
+                imageAlt="A woman resting a hand near her face — the natural, drawn out."
                 tone="light"
             />
 
-            {/* Filler between the two clinic chapters */}
-            <Interstitial
-                testId="interstitial-orthocare"
-                quote="Alignment is not a destination. It is a way of moving through the world."
-                attribution="On Orthocare"
-                imageUrl="https://images.pexels.com/photos/7176305/pexels-photo-7176305.jpeg"
-                imageAlt="A quiet, minimalist wellness interior"
-                tone="dark"
-            />
+            {/* 6. Shared Philosophy Bridge */}
+            <SharedPhilosophyBridge />
 
-            {/* Chapter 2: Asthi Orthocare */}
-            <ClinicChapter
-                testId="chapter-orthocare"
+            {/* 7. Artham Orthocare — Chapter IV.b */}
+            <BrandPanel
                 anchorId="orthocare"
-                number="IV"
-                chapterLabel="Chapter Two — Orthocare"
-                subtitle="Asthi · अस्थि · Bone"
-                name="Asthi Orthocare"
-                tagline="Complete orthopedics — including joint replacement."
-                description="Asthi, in Sanskrit, means bone. Orthocare is our study of structure — a full-spectrum orthopedic practice ranging from sports injuries and spine care to advanced joint replacement. Precision is the tool. Restoration of movement — and with it, dignity — is the work."
-                services={[
-                    "Joint Replacement",
-                    "Sports Injuries",
-                    "Spine Care",
-                    "Arthroscopy",
-                    "Fracture Management",
-                    "Physiotherapy",
-                ]}
-                imageUrl="https://customer-assets.emergentagent.com/job_artham-intro/artifacts/0iw0g0dq_image.png"
-                imageAlt="The Asthi Orthocare reception — the Artham lotus mark, physiotherapy suite visible beyond."
+                testId="chapter-orthocare"
+                chapter="Chapter IV"
+                label="Right Branch"
+                name="Artham Orthocare"
+                tagline="Bone. Motion. Dignity."
+                description="Orthocare is our study of structure — a full-spectrum orthopedic practice ranging from sports injuries and spine care to advanced joint replacement. Precision is the tool. Restoration of movement is the work."
+                categories={ORTHOCARE_CATEGORIES}
+                ctaLabel="Explore Artham Orthocare"
+                imageUrl={ASSETS.orthocareHero}
+                imageAlt="An athletic figure in motion — the study of structure."
                 tone="dark"
                 reverse={true}
             />
 
-            <ClosingCTA />
+            {/* 8. Doctors */}
+            <Doctors />
 
+            {/* 9. Journey Timeline */}
+            <JourneyTimeline />
+
+            {/* 10. Statistics */}
+            <Statistics />
+
+            {/* 11. Patient Journey — Choose Your Care */}
+            <PatientJourney />
+
+            {/* 12. Footer */}
             <Footer />
 
+            {/* Floating WhatsApp */}
             <WhatsAppFloat />
         </main>
     );
