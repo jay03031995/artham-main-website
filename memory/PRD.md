@@ -1,66 +1,63 @@
 # Artham Landing Page — PRD
 
 ## Original Problem Statement
-Build a landing page for brand introduction — a Journey-style website for **Artham**.
-- Tagline: "Where Science meets soulful Care"
-- Two clinics:
-  1. **Artham Aesthetique** — Skin and Wellness
-  2. **Asthi Orthocare** — Complete Orthopedic Clinic with Joint Replacement
-- No top menu / navigation.
-- Footer with Logo, Address, and Phone (Call & WhatsApp).
-  - Address: Lotus Plaza, near Mithaas Sweets, Hazipur, Sector 104, Noida, Uttar Pradesh 201304
-  - Phone: 098119 97993 (Call & WhatsApp)
-- Brand guidelines PDF provided (extracted & followed).
+Build a premium, luxury healthcare brand landing page for **Artham** — the parent brand that unifies two specialty verticals (Artham Aesthetique · Artham Orthocare). The homepage is not a marketing page — it is a scroll-driven journey. Feel: Apple + Aesop + Aman Resorts + Mayo Clinic.
 
 ## User Personas
-- Discerning wellness-seekers researching the Artham brand.
-- Prospective patients considering aesthetic or orthopedic care.
-- Referrals wanting quick contact/location info.
+- Discerning healthcare seekers researching Artham.
+- Prospective aesthetic-care or orthopedic patients.
+- Journalists, partners, and referrers.
 
-## Core Requirements (Static)
-- Single-page brand introduction, museum-like scroll journey.
-- Strict adherence to brand guidelines: Burma Teak (#844d28), Arabian White (#efdfc8), Armadillo (#483f37), Coronation Gold (#b8894a).
-- Typography: Tiro Devanagari Hindi, Playfair Display, Poppins, Raleway, Montserrat.
-- Prominent Devanagari "अर्थम्" alongside "Artham" wordmark.
-- Two clinic chapter sections.
-- Persistent WhatsApp floating button.
-- CTAs (Book Consultation, Call Now) triggering WhatsApp / tel links.
+## Core Requirements
+- Single-page journey. **No top navigation.**
+- Storytelling arc: Purpose → Seed → Roots → Trunk → Branches → Care → Patient.
+- Two equal specialty verticals; neither dominates.
+- Two doctors: Dr. Omaima Jawed (Dermatologist / Aesthetique), Dr. Manu Gautam (Orthopedician / Orthocare).
+- Strict adherence to existing CSS tokens (colors: Burma Teak, Arabian White, Armadillo, Coronation Gold, Summer Peach; fonts: Tiro Devanagari Hindi, Playfair Display, Poppins, Raleway, Montserrat).
+- Footer with logo, address, phone (Call & WhatsApp).
+- Floating WhatsApp button.
 
 ## Architecture
-- **Frontend only**: React + Tailwind (CRA/Craco). No backend interaction needed for this brand page.
-- **Framer Motion** for scroll-driven animations.
-- **Custom Lotus SVG mark** (stylised — user did not upload vector logo).
-- Sections structured as separate components under `/app/frontend/src/sections/`.
+- **Frontend only**: React (CRA + Craco) + Tailwind + Framer Motion + GSAP ScrollTrigger.
+- Section-per-file under `/app/frontend/src/sections/*`.
+- Content constants centralised in `/app/frontend/src/lib/content.js`.
+- Pinned/scrubbed scroll animation on the growth-journey tree scene.
 
-## Implemented (2025-12-04)
-- ✅ Hero section — Devanagari + wordmark + tagline + 2 CTAs + scroll indicator
-- ✅ Brand Story (Chapter I — The Meaning) — bilingual, editorial two-column layout
-- ✅ Lotus Interstitial (breathing room, parallax image)
-- ✅ Philosophy (Chapter II — dark armadillo, 4 value cards with sticky headline)
-- ✅ Aesthetique chapter (Chapter III — light, 6 services, dual CTAs)
-- ✅ Orthocare interstitial (dark, parallax image)
-- ✅ Asthi Orthocare chapter (Chapter IV — dark, reversed image layout, 6 services, dual CTAs)
-- ✅ Closing CTA
-- ✅ Footer — logo, brand name, tagline, both clinic names, full address, phone (tel: + wa.me), Devanagari watermark
-- ✅ Floating WhatsApp button (persistent, animated, ping effect)
-- ✅ Tailwind config extended with brand color tokens (burma/armadillo/arabian/gold) + brand font families
-- ✅ Page title, meta description, theme color updated to Artham branding
-- ✅ All interactive elements have `data-testid` attributes
+## Sections Implemented (2025-12-05)
+1. **Hero** — Logo highlighted first; headline "Meaningful Care. Beautifully Delivered."; subheadline; primary CTA "Discover Our Story"; seed SVG on the right.
+2. **GrowthJourney** — Pinned GSAP ScrollTrigger scene: seed → sprout → sapling → roots → trunk → canopy L+R → branch Aesthetique → branch Orthocare; captions crossfade per stage.
+3. **Philosophy** — Chapter II, dark Armadillo section, 4 values (Patient First, Clinical Excellence, Compassion, Ethical Care) around a root ornament.
+4. **TheSplit** — Chapter III, trunk-to-branches SVG + two hover tiles (both equal; opposite fades on hover).
+5. **BrandPanel (Aesthetique)** — Chapter IV Left Branch: 7 category leaves (Skin, Hair, Face, Laser, Anti-Ageing, Body, Wellness), CTA "Explore Artham Aesthetique", client-supplied lifestyle image.
+6. **SharedPhilosophyBridge** — Circular element "One Philosophy. Infinite Care." with animated connector lines.
+7. **BrandPanel (Orthocare)** — Chapter IV Right Branch: 7 category leaves (Spine, Knee, Hip, Shoulder, Sports Injury, Arthroscopy, Joint Replacement), CTA "Explore Artham Orthocare", client-supplied runner image.
+8. **Doctors** — Chapter V, two large editorial portrait cards with role, clinic tag, and bio.
+9. **JourneyTimeline** — Chapter VI, dark section, 5 stages (Seed, Roots, Growth, Branches, Future) with gold pulse nodes.
+10. **Statistics** — Chapter VII, rAF-based animated counters (10+ Years, 25,000+ Lives, 50+ Experts, 02 Brands).
+11. **PatientJourney** — Chapter VIII, "Choose Your Care Journey." — two clickable premium cards opening WhatsApp with prefilled message.
+12. **Footer** — Editorial 5-column (About, Brands, Doctors, Blogs, Social) + address + tel + WhatsApp + Devanagari watermark.
+13. **WhatsAppFloat** — Persistent floating button with ping-pulse.
 
-## What Was Not Included
-- The exact Artham vector logo (user only shared the PDF — a respectful stylised lotus SVG was created instead).
-- Devanagari version "आस्थि" for Asthi (only the transliteration used).
+## Assets
+- New copper/gold Artham logo (transparent PNG) used in Hero + Footer.
+- Aesthetique lifestyle image (woman skin/face) used in Aesthetique panel + Patient Journey card.
+- Orthocare lifestyle image (runner with highlighted knee) used in Orthocare panel + Patient Journey card.
+- Dr. Omaima Jawed portrait.
+- Dr. Manu Gautam portrait.
 
-## Prioritized Backlog (Future Enhancements)
-- **P1**: Replace stylised lotus mark with the official Artham logo asset (upload the vector or high-res PNG).
-- **P1**: Wire "Book Consultation" to a real appointment form or Calendly/Google Calendar integration.
-- **P2**: Add short "Meet the practitioners" section with doctor profiles.
-- **P2**: Individual sub-pages for each clinic (Aesthetique/Orthocare) with treatment details.
-- **P2**: Instagram / Google Reviews embed to build trust and drive walk-in conversions.
-- **P3**: Blog / editorial section ("Journal") aligned with the "quiet room" brand voice.
-- **P3**: Multilingual toggle (English/Hindi).
+## Testing
+- Iteration 1 (initial museum-scroll build): **100% pass**.
+- Iteration 2 (this major rewrite): **100% pass** across 17 checkpoints, desktop + mobile, zero console errors. Report: `/app/test_reports/iteration_2.json`.
+
+## Prioritized Backlog
+- **P1**: Wire "Explore …" CTAs to real sub-brand websites when Aesthetique and Orthocare microsites launch.
+- **P1**: Replace WhatsApp booking with a proper appointment form (Cal.com / Google Calendar).
+- **P2**: Add a Journal / editorial notes section (SEO + repeat-visitor value).
+- **P2**: Full doctor sub-pages with clinical bios, publications, and appointment slots.
+- **P3**: Multi-language toggle (EN / HI).
+- **P3**: Instagram embed for social proof.
 
 ## Next Action Items
-1. User to share the official Artham logo vector to replace the placeholder mark.
-2. Confirm real content for each clinic (services list, doctors, timings).
-3. Decide on booking mechanism (form + email? Calendly? Google Calendar?).
+1. Provide the final URLs for Artham Aesthetique and Artham Orthocare websites when ready.
+2. Confirm doctors' full clinical bios / years of experience / notable procedures if we should extend the doctor cards.
+3. Optional: share hero lifestyle photography for the growth-journey scene if desired (currently uses editorial SVG).
