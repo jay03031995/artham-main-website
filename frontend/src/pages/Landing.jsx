@@ -1,21 +1,14 @@
 import React, { useEffect } from "react";
 import Hero from "@/sections/Hero";
-import GrowthJourney from "@/sections/GrowthJourney";
+import GrowthStory from "@/sections/GrowthStory";
 import Philosophy from "@/sections/Philosophy";
 import TheSplit from "@/sections/TheSplit";
-import BrandPanel from "@/sections/BrandPanel";
-import SharedPhilosophyBridge from "@/sections/SharedPhilosophyBridge";
 import Doctors from "@/sections/Doctors";
 import JourneyTimeline from "@/sections/JourneyTimeline";
 import Statistics from "@/sections/Statistics";
 import PatientJourney from "@/sections/PatientJourney";
 import Footer from "@/sections/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import {
-    ASSETS,
-    AESTHETIQUE_CATEGORIES,
-    ORTHOCARE_CATEGORIES,
-} from "@/lib/content";
 
 const Landing = () => {
     useEffect(() => {
@@ -24,67 +17,31 @@ const Landing = () => {
 
     return (
         <main data-testid="landing-page" className="relative bg-arabian">
-            {/* 1. Hero — logo first */}
+            {/* 1. Hero — logo highlighted, minimalist */}
             <Hero />
 
-            {/* 2. Growth journey — scroll-pinned tree */}
-            <GrowthJourney />
+            {/* 2. Growth Story — pinned tree (ported from reference) */}
+            <GrowthStory />
 
-            {/* 3. Philosophy — the roots */}
+            {/* 3. Philosophy — the roots / 4 values */}
             <Philosophy />
 
-            {/* 4. The Split — trunk divides */}
+            {/* 4. The Split — two brand panels + icon rows + centre badge */}
             <TheSplit />
 
-            {/* 5. Artham Aesthetique — Chapter IV.a */}
-            <BrandPanel
-                anchorId="aesthetique"
-                testId="chapter-aesthetique"
-                chapter="Chapter IV"
-                label="Left Branch"
-                name="Artham Aesthetique"
-                tagline="Skin. Hair. Face. Wellness."
-                description="Not a promise of change, but a return. Aesthetique is where skin remembers its own light — through evidence-led dermatology, holistic wellness, and treatments considered as carefully as they are delivered."
-                categories={AESTHETIQUE_CATEGORIES}
-                ctaLabel="Explore Artham Aesthetique"
-                imageUrl={ASSETS.aestheticsHero}
-                imageAlt="A woman resting a hand near her face — the natural, drawn out."
-                tone="light"
-            />
-
-            {/* 6. Shared Philosophy Bridge */}
-            <SharedPhilosophyBridge />
-
-            {/* 7. Artham Orthocare — Chapter IV.b */}
-            <BrandPanel
-                anchorId="orthocare"
-                testId="chapter-orthocare"
-                chapter="Chapter IV"
-                label="Right Branch"
-                name="Artham Orthocare"
-                tagline="Bone. Motion. Dignity."
-                description="Orthocare is our study of structure — a full-spectrum orthopedic practice ranging from sports injuries and spine care to advanced joint replacement. Precision is the tool. Restoration of movement is the work."
-                categories={ORTHOCARE_CATEGORIES}
-                ctaLabel="Explore Artham Orthocare"
-                imageUrl={ASSETS.orthocareHero}
-                imageAlt="An athletic figure in motion — the study of structure."
-                tone="dark"
-                reverse={true}
-            />
-
-            {/* 8. Doctors */}
+            {/* 5. Doctors — arch/monogram cards (ported from reference) */}
             <Doctors />
 
-            {/* 9. Journey Timeline */}
+            {/* 6. Journey Timeline */}
             <JourneyTimeline />
 
-            {/* 10. Statistics */}
+            {/* 7. Statistics */}
             <Statistics />
 
-            {/* 11. Patient Journey — Choose Your Care */}
+            {/* 8. Patient Journey — Choose Your Care */}
             <PatientJourney />
 
-            {/* 12. Footer */}
+            {/* 9. Footer */}
             <Footer />
 
             {/* Floating WhatsApp */}

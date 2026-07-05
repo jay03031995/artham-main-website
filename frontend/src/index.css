@@ -207,3 +207,259 @@ body {
         @apply border-border;
     }
 }
+
+/* =========================================================
+   PORTED FROM ARTHAM REFERENCE — layout & component classes
+   Only structural rules; no new brand tokens introduced.
+   ========================================================= */
+.container { width: min(1200px, 92vw); margin-inline: auto; }
+.artham-h2 {
+    font-family: var(--font-headline, "Playfair Display", Georgia, serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--burma-teak);
+    margin: 0;
+}
+.artham-h2 em, .artham-h2 .italic { font-style: italic; color: var(--armadillo); }
+.artham-overline {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 0.6875rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--burma-teak);
+}
+.artham-body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.9;
+    color: rgba(72, 63, 55, 0.85);
+}
+.artham-fine {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(72, 63, 55, 0.7);
+}
+.hairline-gold { height: 1px; background: var(--coronation-gold); opacity: 0.6; border: 0; }
+.section-light { background-color: var(--arabian-white); color: var(--armadillo); }
+.btn-artham-primary {
+    display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.25rem;
+    background-color: var(--burma-teak); color: var(--arabian-white);
+    font-family: "Montserrat", sans-serif; font-size: 0.6875rem; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase; text-decoration: none;
+    border: none; cursor: pointer; transition: background-color 500ms ease;
+}
+.btn-artham-primary:hover { background-color: var(--armadillo); }
+
+/* ---------- Growth story (pinned) ---------- */
+.growth { background-color: var(--arabian-white); }
+.growth-stage {
+    height: 100vh; height: 100svh; display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    align-items: center; gap: 2rem;
+    padding-inline: clamp(1.5rem, 6vw, 6rem);
+}
+.growth-captions { position: relative; min-height: 14rem; }
+.growth-caption {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0;
+}
+.growth-caption .artham-overline { margin-bottom: 1.25rem; display: block; }
+.growth-caption p { max-width: 26rem; margin: 1.25rem 0 0; }
+.growth-art { display: grid; place-items: center; }
+.growth-art svg { width: min(560px, 100%); height: auto; overflow: visible; }
+.branch-label {
+    position: absolute; font-family: "Playfair Display", serif; font-style: italic;
+    font-size: clamp(1rem, 1.8vw, 1.4rem); color: var(--armadillo);
+    opacity: 0; white-space: nowrap;
+}
+.branch-label small {
+    display: block; font-family: "Montserrat", sans-serif; font-style: normal;
+    font-size: 0.6875rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--coronation-gold);
+}
+@media (max-width: 900px) {
+    .growth-stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; padding-top: 5.5rem; }
+    .growth-captions { min-height: 11rem; }
+}
+
+/* ---------- Doctors ---------- */
+.doctors { padding: clamp(6rem, 14vh, 10rem) 0; }
+.doctors-head { text-align: center; max-width: 42rem; margin-inline: auto; }
+.doctors-grid {
+    margin-top: clamp(3rem, 7vh, 5rem);
+    display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 3rem);
+}
+.doctor-card {
+    display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    background: var(--summer-peach);
+    border: 1px solid rgba(132, 77, 40, 0.18);
+    overflow: hidden;
+    transition: box-shadow 900ms ease, transform 900ms cubic-bezier(.22,1,.36,1);
+}
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -30px rgba(72, 63, 55, 0.35);
+}
+.doctor-photo { position: relative; min-height: 280px; overflow: hidden; }
+.doctor-photo .ph-fallback {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.doctor-info {
+    padding: clamp(1.75rem, 3vw, 2.75rem);
+    display: flex; flex-direction: column; justify-content: center;
+}
+.doctor-info .artham-overline { display: block; margin-bottom: 0.9rem; }
+.doctor-info h3 {
+    font-family: "Playfair Display", serif; font-weight: 500;
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    margin: 0 0 0.4rem; color: var(--armadillo);
+}
+.doctor-info .role {
+    font-family: "Playfair Display", serif; font-style: italic;
+    color: var(--burma-teak); margin: 0 0 1.25rem; font-size: 1.05rem;
+}
+.doctor-info .bio { margin: 0; font-size: 0.875rem; color: rgba(72, 63, 55, 0.72); }
+.doctor-info .hairline-gold { margin: 1.5rem 0 0; width: 56px; }
+@media (max-width: 980px) { .doctors-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+    .doctor-card { grid-template-columns: 1fr; }
+    .doctor-photo { min-height: 320px; }
+}
+
+/* ---------- The Split (brand panels with icon rows) ---------- */
+.split { background: var(--summer-peach); padding: clamp(5rem, 12vh, 8rem) 0 clamp(6rem, 14vh, 9rem); }
+.split-container { width: min(1360px, 94vw); margin-inline: auto; }
+.split-head { text-align: center; max-width: 40rem; margin-inline: auto; }
+.split-wrap { position: relative; margin-top: clamp(3.5rem, 8vh, 6rem); }
+.split-panels {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+.brand-panel {
+    position: relative; display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    border: 1px solid rgba(132, 77, 40, 0.15);
+    overflow: hidden; cursor: pointer;
+    transition: opacity 700ms ease, box-shadow 900ms ease, border-color 700ms ease;
+}
+.brand-panel--gold {
+    background:
+        linear-gradient(155deg, rgba(184, 137, 74, 0.16), rgba(184, 137, 74, 0.04) 60%),
+        var(--arabian-white);
+}
+.brand-panel--teak {
+    background:
+        linear-gradient(205deg, rgba(132, 77, 40, 0.14), rgba(132, 77, 40, 0.03) 60%),
+        var(--arabian-white);
+}
+.brand-panel:hover {
+    box-shadow: 0 30px 70px -35px rgba(72, 63, 55, 0.45),
+                0 0 0 1px rgba(184, 137, 74, 0.55);
+    border-color: rgba(184, 137, 74, 0.6);
+}
+.split-panels:has(.brand-panel:hover) .brand-panel:not(:hover) { opacity: 0.55; }
+.panel-main {
+    display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+    flex: 1; min-height: clamp(300px, 40vw, 460px);
+}
+.panel-copy {
+    padding: clamp(2rem, 3.5vw, 3.25rem);
+    display: flex; flex-direction: column; justify-content: center;
+}
+.panel-copy .brand-name {
+    font-family: "Playfair Display", serif; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+    line-height: 1.15; margin: 0 0 1.25rem;
+}
+.brand-panel--gold .brand-name { color: var(--burma-teak); }
+.brand-panel--teak .brand-name { color: var(--coronation-gold); }
+.panel-copy .desc {
+    margin: 0 0 2rem; font-size: 0.875rem;
+    color: rgba(72, 63, 55, 0.75); max-width: 20rem;
+}
+.panel-photo { position: relative; overflow: hidden; }
+.panel-photo .ph-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.panel-photo img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    transition: transform 1200ms cubic-bezier(.22,1,.36,1);
+}
+.brand-panel:hover .panel-photo img { transform: scale(1.04); }
+
+.icon-row {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem;
+    padding: 1.5rem clamp(1.25rem, 2.5vw, 2.25rem) 1.75rem;
+    border-top: 1px solid rgba(132, 77, 40, 0.15);
+    background: rgba(239, 223, 200, 0.55);
+}
+.icon-item {
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    flex: 1 1 0; min-width: 58px;
+}
+.icon-item .ring {
+    width: 50px; height: 50px; border-radius: 50%;
+    border: 1px solid rgba(132, 77, 40, 0.35);
+    background: rgba(239, 223, 200, 0.7);
+    display: grid; place-items: center;
+    transition: all 500ms ease;
+}
+.icon-item svg { width: 22px; height: 22px; }
+.icon-item svg * {
+    fill: none; stroke: var(--burma-teak);
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    transition: stroke 500ms ease;
+}
+.brand-panel--gold .icon-item svg * { stroke: var(--coronation-gold); }
+.icon-item:hover .ring {
+    background: var(--burma-teak); border-color: var(--burma-teak);
+    transform: translateY(-3px);
+}
+.brand-panel--gold .icon-item:hover .ring {
+    background: var(--coronation-gold); border-color: var(--coronation-gold);
+}
+.icon-item:hover svg * { stroke: var(--arabian-white) !important; }
+.icon-item span {
+    font-family: "Raleway", sans-serif; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(72, 63, 55, 0.75); text-align: center;
+}
+
+.center-badge {
+    position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); z-index: 5;
+    width: clamp(150px, 15vw, 196px); aspect-ratio: 1; border-radius: 50%;
+    background: var(--arabian-white);
+    box-shadow: 0 24px 60px -22px rgba(72, 63, 55, 0.45),
+                0 0 0 6px rgba(239, 223, 200, 0.6);
+    display: grid; place-items: center; text-align: center; padding: 1.1rem;
+    pointer-events: none;
+}
+.center-badge .emblem { width: 60%; height: auto; }
+.center-badge p {
+    margin: 0.5rem 0 0; font-family: "Montserrat", sans-serif;
+    font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--burma-teak); line-height: 1.7;
+}
+.center-badge p em {
+    font-style: normal; color: var(--armadillo); display: block;
+}
+@media (max-width: 900px) {
+    .split-panels { grid-template-columns: 1fr; }
+    .panel-main { grid-template-columns: 1fr; min-height: 0; }
+    .panel-photo { min-height: 300px; order: -1; }
+    .center-badge {
+        position: relative; left: auto; top: auto; transform: none;
+        margin: -0.5rem auto; pointer-events: auto;
+    }
+    .split-wrap { display: flex; flex-direction: column; }
+    .icon-row { justify-content: flex-start; }
+    .icon-item { flex: 0 1 calc(25% - 0.75rem); }
+}
+
