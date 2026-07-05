@@ -1,0 +1,35 @@
+{
+  "summary": "Delta re-test after removing TheSplit section and adding real doctor photos with BgStripper on Doctors cards. All acceptance criteria pass at 100%.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications": {
+    "title": "Artham — Meaningful Care. Beautifully Delivered.",
+    "the_split_removed": true,
+    "chapter_aesthetique_absent": true,
+    "chapter_orthocare_absent": true,
+    "no_one_trunk_text": true,
+    "section_order_correct": "hero -> growth-journey -> philosophy -> doctors -> journey-timeline -> statistics -> patient-journey -> footer (verified by y-positions)",
+    "doctor_omaima_img": "1 <img> inside .doctor-photo, processed data:image/png (BG stripped), visible",
+    "doctor_manu_img": "1 <img> inside .doctor-photo, processed data:image/png (BG stripped), visible",
+    "doctor_names_roles_clinics": "All render: 'Dr. Omaima Jawed / Dermatologist / ARTHAM AESTHETIQUE' and 'Dr. Manu Gautam / Orthopedician / ARTHAM ORTHOCARE'",
+    "hero_discover_scrolls_to_journey": true,
+    "desktop_1440_horizontal_overflow_px": 0,
+    "mobile_375_horizontal_overflow_px": 0,
+    "console_errors": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "BgStripper: processes on every mount and stores data URL in state — heavy on canvas; consider useMemo/caching per-src to avoid rework on route re-mount. Acceptable for a 2-image landing page."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iteration 5 delta covered TheSplit removal + doctor photos via BgStripper. All good. Backend not tested (frontend-only request)."
+}

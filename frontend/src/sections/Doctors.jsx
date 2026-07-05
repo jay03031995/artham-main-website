@@ -1,14 +1,17 @@
 import React from "react";
 import { DOCTORS } from "@/lib/content";
+import BgStripper from "@/components/BgStripper";
 
 /**
  * Doctors — ported from client reference.
  *
- * Two editorial doctor cards on a Summer-Peach background.
- * Left cell shows an SVG arch (peach + tinted ellipse) with the doctor's
- * italic initials — matching the reference exactly. No photograph is used,
- * per the client's mock-ups.
- * Right cell has the brand, name, role, bio and a small gold hairline.
+ * Two editorial cards on a Summer-Peach surface. The left cell layers:
+ *  1. An SVG "cameo" (peach + tinted ellipse + italic monogram) as the
+ *     always-present fallback / backdrop.
+ *  2. On top, the actual doctor photograph via BgStripper — the black
+ *     studio background is stripped at runtime so the subject appears to
+ *     float on the peach cameo (no hard silhouette rectangle).
+ * Right cell holds the brand tag, name, italic role, bio, and hairline.
  */
 const TONES = {
     "dr-omaima-jawed": { tone: "var(--coronation-gold)", toneOpacity: 0.18 },
@@ -65,6 +68,8 @@ const Doctors = () => {
                                 data-testid={`doctor-card-${d.id}`}
                             >
                                 <div className="doctor-photo">
+                                    {/* SVG cameo — always underneath as
+                                        fallback + on-brand backdrop */}
                                     <svg
                                         className="ph-fallback"
                                         viewBox="0 0 300 400"
@@ -92,11 +97,19 @@ const Doctors = () => {
                                             fontStyle="italic"
                                             fontSize="40"
                                             fill="var(--burma-teak)"
-                                            fillOpacity="0.65"
+                                            fillOpacity="0.4"
                                         >
                                             {initials(d.name)}
                                         </text>
                                     </svg>
+                                    {/* Actual portrait, black BG removed */}
+                                    <BgStripper
+                                        src={d.image}
+                                        alt={`${d.name}, ${
+                                            d.role.split("·")[0].trim()
+                                        }`}
+                                        loading="lazy"
+                                    />
                                 </div>
                                 <div className="doctor-info">
                                     <span className="artham-overline">

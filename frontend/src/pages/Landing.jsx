@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Hero from "@/sections/Hero";
 import GrowthStory from "@/sections/GrowthStory";
 import Philosophy from "@/sections/Philosophy";
-import TheSplit from "@/sections/TheSplit";
 import Doctors from "@/sections/Doctors";
 import JourneyTimeline from "@/sections/JourneyTimeline";
 import Statistics from "@/sections/Statistics";
@@ -20,28 +19,25 @@ const Landing = () => {
             {/* 1. Hero — logo highlighted, minimalist */}
             <Hero />
 
-            {/* 2. Growth Story — pinned tree (ported from reference) */}
+            {/* 2. Growth Story — pinned tree */}
             <GrowthStory />
 
             {/* 3. Philosophy — the roots / 4 values */}
             <Philosophy />
 
-            {/* 4. The Split — two brand panels + icon rows + centre badge */}
-            <TheSplit />
-
-            {/* 5. Doctors — arch/monogram cards (ported from reference) */}
+            {/* 4. Doctors — arch cards with photos */}
             <Doctors />
 
-            {/* 6. Journey Timeline */}
+            {/* 5. Journey Timeline */}
             <JourneyTimeline />
 
-            {/* 7. Statistics */}
+            {/* 6. Statistics */}
             <Statistics />
 
-            {/* 8. Patient Journey — Choose Your Care */}
+            {/* 7. Patient Journey — Choose Your Care */}
             <PatientJourney />
 
-            {/* 9. Footer */}
+            {/* 8. Footer */}
             <Footer />
 
             {/* Floating WhatsApp */}
