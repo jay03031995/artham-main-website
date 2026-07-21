@@ -1,0 +1,21 @@
+# Artham
+
+> Meaningful care across Artham Aesthetique and Artham Orthocare in Noida.
+
+Artham is a healthcare brand built around soulful, evidence-led care. The site introduces Artham's philosophy, doctors, contact details, and two specialty branches: Artham Aesthetique for skin, hair, face, and wellness, and Artham Orthocare for orthopedic care.
+
+## Website
+
+- Home: https://artham-intro.preview.emergentagent.com/
+- Artham Aesthetique: https://arthamaesthetic.com/
+- Artham Orthocare: https://drmanugautam.com/
+
+## Contact
+
+- Phone: +91 98119 97993
+- Address: Lotus Plaza, near Mithaas Sweets, Hazipur, Sector 104, Noida, Uttar Pradesh 201304
+
+## Social
+
+- Instagram: https://www.instagram.com/artham.aesthetique
+- Facebook: https://www.facebook.com/Artham.aesthetique/
