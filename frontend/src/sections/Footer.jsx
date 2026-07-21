@@ -42,7 +42,7 @@ const Footer = () => {
     return (
         <footer
             data-testid="footer-section"
-            className="relative bg-burma text-arabian pt-24 md:pt-32 pb-10 px-6 md:px-12 overflow-hidden"
+            className="relative bg-burma text-arabian pt-16 md:pt-20 pb-8 px-6 md:px-12 overflow-hidden"
         >
             {/* Devanagari watermark */}
             <div
@@ -55,7 +55,7 @@ const Footer = () => {
 
             <div className="relative max-w-7xl mx-auto">
                 {/* Top row — logo + signoff */}
-                <div className="grid md:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-20">
+                <div className="grid md:grid-cols-12 gap-10 md:gap-12 mb-10 md:mb-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -66,13 +66,13 @@ const Footer = () => {
                         <img
                             src={ASSETS.logo}
                             alt="Artham"
-                            className="w-28 md:w-32 h-auto mb-6"
+                            className="w-24 md:w-28 h-auto mb-4"
                             style={{ mixBlendMode: "screen" }}
                         />
-                        <h3 className="font-headline text-arabian text-2xl md:text-3xl mb-4 leading-tight">
+                        <h3 className="font-headline text-arabian text-xl md:text-2xl mb-3 leading-tight">
                             {BRAND.tagline}.
                         </h3>
-                        <p className="font-body text-arabian/70 text-sm md:text-base leading-[1.9] max-w-md">
+                        <p className="font-body text-arabian/70 text-sm leading-[1.75] max-w-md">
                             One trunk of trust. Two branches of care.
                             <br />
                             An unhurried practice, in the heart of Noida.
@@ -85,13 +85,13 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-60px" }}
                         transition={{ duration: 0.9, delay: 0.1 }}
-                        className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-10"
+                        className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8"
                     >
                         <div data-testid="footer-address">
-                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.35em] text-gold mb-3">
                                 Visit Us
                             </h4>
-                            <address className="not-italic font-body text-arabian/85 text-sm md:text-base leading-[1.9]">
+                            <address className="not-italic font-body text-arabian/85 text-sm leading-[1.75]">
                                 {CONTACT.address.line1},
                                 <br />
                                 {CONTACT.address.line2},
@@ -100,13 +100,13 @@ const Footer = () => {
                             </address>
                         </div>
                         <div data-testid="footer-contact">
-                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.35em] text-gold mb-3">
                                 Reach Out
                             </h4>
                             <a
                                 data-testid="footer-call-link"
                                 href={`tel:${CONTACT.phoneIntl}`}
-                                className="inline-flex items-center gap-3 font-headline text-arabian text-xl md:text-2xl mb-2 hover:text-gold transition-colors duration-300"
+                                className="inline-flex items-center gap-3 font-headline text-arabian text-lg md:text-xl mb-1 hover:text-gold transition-colors duration-300"
                             >
                                 <Phone
                                     size={20}
@@ -115,7 +115,7 @@ const Footer = () => {
                                 />
                                 {CONTACT.phone}
                             </a>
-                            <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em] mb-6">
+                            <p className="font-fine text-arabian/70 text-[11px] uppercase tracking-[0.2em] mb-4">
                                 Call &nbsp;·&nbsp; WhatsApp
                             </p>
                             <a
@@ -125,7 +125,7 @@ const Footer = () => {
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
+                                className="inline-flex items-center gap-2 font-secondary text-[10px] uppercase tracking-[0.25em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
                             >
                                 Message on WhatsApp
                                 <MessageCircle
@@ -139,10 +139,10 @@ const Footer = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="h-px w-full bg-arabian/20 mb-16" />
+                <div className="h-px w-full bg-arabian/20 mb-8" />
 
                 {/* Nav columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-14 mb-16 md:max-w-3xl md:ml-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 mb-10 md:max-w-3xl md:ml-auto">
                     {columns.map((c, i) => (
                         <motion.div
                             key={c.title}
@@ -151,10 +151,10 @@ const Footer = () => {
                             viewport={{ once: true, margin: "-60px" }}
                             transition={{ duration: 0.8, delay: 0.05 * i }}
                         >
-                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
+                            <h4 className="font-secondary text-[10px] uppercase tracking-[0.35em] text-gold mb-3">
                                 {c.title}
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-2">
                                 {c.items.map((item) => (
                                     <li key={item}>
                                         {brandLinks[item] ? (
@@ -162,7 +162,7 @@ const Footer = () => {
                                                 href={brandLinks[item]}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 font-body text-sm text-arabian/80 hover:text-arabian transition-colors"
+                                                className="inline-flex items-center gap-2 font-body text-sm leading-snug text-arabian/80 hover:text-arabian transition-colors"
                                             >
                                                 {item}
                                                 <ExternalLink
@@ -172,7 +172,7 @@ const Footer = () => {
                                                 />
                                             </a>
                                         ) : (
-                                            <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
+                                            <span className="font-body text-sm leading-snug text-arabian/80 hover:text-arabian transition-colors cursor-default">
                                                 {item}
                                             </span>
                                         )}
@@ -188,17 +188,17 @@ const Footer = () => {
                         viewport={{ once: true, margin: "-60px" }}
                         transition={{ duration: 0.8, delay: 0.25 }}
                     >
-                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
+                        <h4 className="font-secondary text-[10px] uppercase tracking-[0.35em] text-gold mb-3">
                             Social
                         </h4>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2">
                             {socialLinks.map(({ label, href, Icon }) => (
                                 <li key={label}>
                                     <a
                                         href={href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 font-body text-sm text-arabian/80 hover:text-arabian transition-colors"
+                                        className="inline-flex items-center gap-3 font-body text-sm leading-snug text-arabian/80 hover:text-arabian transition-colors"
                                     >
                                         <Icon
                                             size={16}
@@ -214,7 +214,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="h-px w-full bg-arabian/20 mb-8" />
+                <div className="h-px w-full bg-arabian/20 mb-6" />
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-arabian/60">
                     <p className="font-fine text-[11px] uppercase tracking-[0.3em]">
                         © {new Date().getFullYear()} Artham. All rights reserved.
