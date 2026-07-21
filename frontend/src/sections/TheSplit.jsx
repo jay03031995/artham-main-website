@@ -271,14 +271,22 @@ const TheSplit = () => {
                             role="link"
                             tabIndex={0}
                             aria-label="Explore Artham Orthocare"
-                            onClick={() => {
+                            onClick={(event) => {
+                                if (event.target.closest("a")) return;
+                                window.open(
+                                    LINKS.orthocare,
+                                    "_blank",
+                                    "noopener,noreferrer"
+                                );
+                            }}
+                            onKeyDown={(event) => {
+                                if (event.key !== "Enter" && event.key !== " ") {
+                                    return;
+                                }
+                                event.preventDefault();
                                 const el =
-                                    document.getElementById("patient-journey");
-                                if (el)
-                                    el.scrollIntoView({
-                                        behavior: "smooth",
-                                        block: "start",
-                                    });
+                                    event.currentTarget.querySelector("a");
+                                if (el) el.click();
                             }}
                         >
                             <div className="panel-main">
@@ -291,8 +299,10 @@ const TheSplit = () => {
                                         restore movement, relieve pain and
                                         rebuild an active life.
                                     </p>
-                                    <button
-                                        type="button"
+                                    <a
+                                        href={LINKS.orthocare}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         data-testid="chapter-orthocare-cta"
                                         className="btn-artham-primary"
                                         style={{
@@ -301,9 +311,13 @@ const TheSplit = () => {
                                                 "var(--coronation-gold)",
                                         }}
                                     >
-                                        Explore Orthocare{" "}
-                                        <span aria-hidden="true">→</span>
-                                    </button>
+                                        Explore Orthocare
+                                        <ExternalLink
+                                            size={15}
+                                            strokeWidth={1.6}
+                                            aria-hidden="true"
+                                        />
+                                    </a>
                                 </div>
                                 <div className="panel-photo" aria-hidden="true">
                                     <PanelCameo

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ExternalLink } from "lucide-react";
+import { LINKS } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,30 +90,48 @@ const StoryTree = ({ className = "" }) => {
             <div className="max-w-5xl mx-auto px-6 md:px-12">
                 {/* Header row — the two labelled verticals */}
                 <div className="flex items-start justify-between mb-4 md:mb-8">
-                    <div
+                    <a
+                        href={LINKS.aesthetique}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         data-label
                         className="text-left"
                         style={{ opacity: 0, transform: "translateY(10px)" }}
+                        aria-label="Open Artham Aesthetique website"
                     >
                         <p className="font-secondary text-[10px] uppercase tracking-[0.4em] text-armadillo/70 mb-2">
                             Vertical 01
                         </p>
-                        <p className="font-headline italic text-armadillo/80 text-xl md:text-3xl">
+                        <p className="font-headline italic text-armadillo/80 text-xl md:text-3xl inline-flex items-center gap-2 hover:text-burma transition-colors">
                             Artham Aesthetique
+                            <ExternalLink
+                                size={16}
+                                strokeWidth={1.5}
+                                aria-hidden="true"
+                            />
                         </p>
-                    </div>
-                    <div
+                    </a>
+                    <a
+                        href={LINKS.orthocare}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         data-label
                         className="text-right"
                         style={{ opacity: 0, transform: "translateY(10px)" }}
+                        aria-label="Open Artham Orthocare website"
                     >
                         <p className="font-secondary text-[10px] uppercase tracking-[0.4em] text-armadillo/70 mb-2">
                             Vertical 02
                         </p>
-                        <p className="font-headline italic text-armadillo/80 text-xl md:text-3xl">
+                        <p className="font-headline italic text-armadillo/80 text-xl md:text-3xl inline-flex items-center gap-2 justify-end hover:text-burma transition-colors">
                             Artham Orthocare
+                            <ExternalLink
+                                size={16}
+                                strokeWidth={1.5}
+                                aria-hidden="true"
+                            />
                         </p>
-                    </div>
+                    </a>
                 </div>
 
                 {/* Tree SVG */}

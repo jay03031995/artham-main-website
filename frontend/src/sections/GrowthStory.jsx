@@ -418,12 +418,20 @@ const GrowthStory = () => {
                                 <ExternalLink size={16} strokeWidth={1.5} />
                             </span>
                         </a>
-                        <div
+                        <a
+                            href={LINKS.orthocare}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="branch-label"
                             style={{ right: "2%", top: "4%", textAlign: "right" }}
+                            aria-label="Open Artham Orthocare website"
                         >
-                            <small>Vertical 02</small>Artham Orthocare
-                        </div>
+                            <small>Vertical 02</small>
+                            <span>
+                                Artham Orthocare
+                                <ExternalLink size={16} strokeWidth={1.5} />
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>

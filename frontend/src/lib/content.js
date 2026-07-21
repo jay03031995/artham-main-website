@@ -42,6 +42,7 @@ export const CONTACT = {
 
 export const LINKS = {
     aesthetique: "https://arthamaesthetic.com/",
+    orthocare: "https://drmanugautam.com/",
     social: {
         instagram: "https://www.instagram.com/artham.aesthetique",
         facebook: "https://www.facebook.com/Artham.aesthetique/",

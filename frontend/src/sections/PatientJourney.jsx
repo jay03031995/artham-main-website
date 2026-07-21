@@ -1,25 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, MessageCircle } from "lucide-react";
-import { ASSETS, CONTACT, LINKS } from "@/lib/content";
+import { ExternalLink } from "lucide-react";
+import { ASSETS, LINKS } from "@/lib/content";
 
 /**
  * PatientJourney — "Choose Your Care Journey".
- * Two premium clickable cards. Entire card is clickable; opens WhatsApp
- * with a prefilled message for the chosen clinic (safe default until
- * external clinic URLs are provided).
+ * Two premium clickable cards. Entire card opens the relevant clinic website.
  */
 const PatientJourney = () => {
-    const openWhatsApp = (clinic) => {
-        const msg = encodeURIComponent(
-            `Hello Artham, I'd like to begin my care journey with ${clinic}.`
-        );
-        window.open(
-            `https://wa.me/${CONTACT.whatsappNumber}?text=${msg}`,
-            "_blank"
-        );
-    };
-
     const cards = [
         {
             id: "aesth",
@@ -37,8 +25,9 @@ const PatientJourney = () => {
             oneLiner: "Bone, motion, dignity — restored with precision.",
             image: ASSETS.orthocareHero,
             testId: "patient-journey-ortho-card",
-            cta: "Start My Journey",
-            icon: MessageCircle,
+            href: LINKS.orthocare,
+            cta: "Visit Orthocare",
+            icon: ExternalLink,
         },
     ];
 
@@ -83,14 +72,9 @@ const PatientJourney = () => {
                         <motion.a
                             key={c.id}
                             data-testid={c.testId}
-                            href={c.href || "#contact"}
-                            target={c.href ? "_blank" : undefined}
-                            rel={c.href ? "noopener noreferrer" : undefined}
-                            onClick={(event) => {
-                                if (c.href) return;
-                                event.preventDefault();
-                                openWhatsApp(c.name);
-                            }}
+                            href={c.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-60px" }}

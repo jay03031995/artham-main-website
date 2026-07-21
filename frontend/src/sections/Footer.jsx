@@ -11,20 +11,12 @@ import { ASSETS, CONTACT, BRAND, LINKS } from "@/lib/content";
 
 const columns = [
     {
-        title: "About",
-        items: ["The Philosophy", "The Journey", "The Trunk", "Journal"],
-    },
-    {
         title: "Brands",
         items: ["Artham Aesthetique", "Artham Orthocare"],
     },
     {
         title: "Doctors",
         items: ["Dr. Omaima Jawed", "Dr. Manu Gautam"],
-    },
-    {
-        title: "Blogs",
-        items: ["On Skin", "On Alignment", "On Care", "All Notes"],
     },
 ];
 
@@ -40,6 +32,11 @@ const socialLinks = [
         Icon: Facebook,
     },
 ];
+
+const brandLinks = {
+    "Artham Aesthetique": LINKS.aesthetique,
+    "Artham Orthocare": LINKS.orthocare,
+};
 
 const Footer = () => {
     return (
@@ -145,7 +142,7 @@ const Footer = () => {
                 <div className="h-px w-full bg-arabian/20 mb-16" />
 
                 {/* Nav columns */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-14 mb-16 md:max-w-3xl md:ml-auto">
                     {columns.map((c, i) => (
                         <motion.div
                             key={c.title}
@@ -160,9 +157,9 @@ const Footer = () => {
                             <ul className="space-y-3">
                                 {c.items.map((item) => (
                                     <li key={item}>
-                                        {item === "Artham Aesthetique" ? (
+                                        {brandLinks[item] ? (
                                             <a
-                                                href={LINKS.aesthetique}
+                                                href={brandLinks[item]}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-2 font-body text-sm text-arabian/80 hover:text-arabian transition-colors"
