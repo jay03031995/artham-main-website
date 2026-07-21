@@ -277,7 +277,12 @@ body {
 .branch-label {
     position: absolute; font-family: "Playfair Display", serif; font-style: italic;
     font-size: clamp(1rem, 1.8vw, 1.4rem); color: var(--armadillo);
-    opacity: 0; white-space: nowrap;
+    opacity: 0; white-space: nowrap; text-decoration: none;
+    transition: color 300ms ease;
+}
+.branch-label:hover { color: var(--burma-teak); }
+.branch-label span {
+    display: inline-flex; align-items: center; gap: 0.45rem;
 }
 .branch-label small {
     display: block; font-family: "Montserrat", sans-serif; font-style: normal;
@@ -469,4 +474,3 @@ body {
     .icon-row { justify-content: flex-start; }
     .icon-item { flex: 0 1 calc(25% - 0.75rem); }
 }
-

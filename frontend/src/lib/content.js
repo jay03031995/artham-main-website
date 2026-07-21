@@ -40,6 +40,14 @@ export const CONTACT = {
     },
 };
 
+export const LINKS = {
+    aesthetique: "https://arthamaesthetic.com/",
+    social: {
+        instagram: "https://www.instagram.com/artham.aesthetique",
+        facebook: "https://www.facebook.com/Artham.aesthetique/",
+    },
+};
+
 export const BRAND = {
     parent: "Artham",
     parentDevanagari: "अर्थम्",

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import { ASSETS, BRAND } from "@/lib/content";
 
 /**
@@ -125,9 +126,12 @@ const Hero = () => {
                             className="group bg-burma text-arabian px-10 py-4 font-secondary text-[11px] uppercase tracking-[0.3em] hover:bg-armadillo transition-colors duration-500 inline-flex items-center gap-4"
                         >
                             Discover Our Story
-                            <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-500">
-                                →
-                            </span>
+                            <ArrowDown
+                                size={16}
+                                strokeWidth={1.6}
+                                className="opacity-75 group-hover:translate-y-1 transition-transform duration-500"
+                                aria-hidden="true"
+                            />
                         </button>
                     </motion.div>
                 </motion.div>

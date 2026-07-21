@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ASSETS, CONTACT, BRAND } from "@/lib/content";
+import {
+    ExternalLink,
+    Facebook,
+    Instagram,
+    MessageCircle,
+    Phone,
+} from "lucide-react";
+import { ASSETS, CONTACT, BRAND, LINKS } from "@/lib/content";
 
 const columns = [
     {
@@ -18,6 +25,19 @@ const columns = [
     {
         title: "Blogs",
         items: ["On Skin", "On Alignment", "On Care", "All Notes"],
+    },
+];
+
+const socialLinks = [
+    {
+        label: "Instagram",
+        href: LINKS.social.instagram,
+        Icon: Instagram,
+    },
+    {
+        label: "Facebook",
+        href: LINKS.social.facebook,
+        Icon: Facebook,
     },
 ];
 
@@ -89,8 +109,13 @@ const Footer = () => {
                             <a
                                 data-testid="footer-call-link"
                                 href={`tel:${CONTACT.phoneIntl}`}
-                                className="block font-headline text-arabian text-xl md:text-2xl mb-2 hover:text-gold transition-colors duration-300"
+                                className="inline-flex items-center gap-3 font-headline text-arabian text-xl md:text-2xl mb-2 hover:text-gold transition-colors duration-300"
                             >
+                                <Phone
+                                    size={20}
+                                    strokeWidth={1.6}
+                                    aria-hidden="true"
+                                />
                                 {CONTACT.phone}
                             </a>
                             <p className="font-fine text-arabian/70 text-xs uppercase tracking-[0.2em] mb-6">
@@ -103,9 +128,14 @@ const Footer = () => {
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
+                                className="inline-flex items-center gap-2 font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-1 hover:text-gold hover:border-gold transition-colors duration-300"
                             >
-                                Message on WhatsApp →
+                                Message on WhatsApp
+                                <MessageCircle
+                                    size={15}
+                                    strokeWidth={1.6}
+                                    aria-hidden="true"
+                                />
                             </a>
                         </div>
                     </motion.div>
@@ -130,9 +160,25 @@ const Footer = () => {
                             <ul className="space-y-3">
                                 {c.items.map((item) => (
                                     <li key={item}>
-                                        <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
-                                            {item}
-                                        </span>
+                                        {item === "Artham Aesthetique" ? (
+                                            <a
+                                                href={LINKS.aesthetique}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 font-body text-sm text-arabian/80 hover:text-arabian transition-colors"
+                                            >
+                                                {item}
+                                                <ExternalLink
+                                                    size={14}
+                                                    strokeWidth={1.6}
+                                                    aria-hidden="true"
+                                                />
+                                            </a>
+                                        ) : (
+                                            <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
+                                                {item}
+                                            </span>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
@@ -149,11 +195,21 @@ const Footer = () => {
                             Social
                         </h4>
                         <ul className="space-y-3">
-                            {["Instagram", "LinkedIn", "YouTube"].map((s) => (
-                                <li key={s}>
-                                    <span className="font-body text-sm text-arabian/80 hover:text-arabian transition-colors cursor-default">
-                                        {s}
-                                    </span>
+                            {socialLinks.map(({ label, href, Icon }) => (
+                                <li key={label}>
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-3 font-body text-sm text-arabian/80 hover:text-arabian transition-colors"
+                                    >
+                                        <Icon
+                                            size={16}
+                                            strokeWidth={1.6}
+                                            aria-hidden="true"
+                                        />
+                                        {label}
+                                    </a>
                                 </li>
                             ))}
                         </ul>

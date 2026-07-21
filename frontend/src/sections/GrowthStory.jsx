@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ExternalLink } from "lucide-react";
+import { LINKS } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -402,12 +404,20 @@ const GrowthStory = () => {
                             </g>
                         </svg>
 
-                        <div
+                        <a
+                            href={LINKS.aesthetique}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="branch-label"
                             style={{ left: "2%", top: "4%" }}
+                            aria-label="Open Artham Aesthetique website"
                         >
-                            <small>Vertical 01</small>Artham Aesthetique
-                        </div>
+                            <small>Vertical 01</small>
+                            <span>
+                                Artham Aesthetique
+                                <ExternalLink size={16} strokeWidth={1.5} />
+                            </span>
+                        </a>
                         <div
                             className="branch-label"
                             style={{ right: "2%", top: "4%", textAlign: "right" }}

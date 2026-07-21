@@ -1,5 +1,6 @@
 import React from "react";
-import { ASSETS } from "@/lib/content";
+import { ExternalLink } from "lucide-react";
+import { ASSETS, LINKS } from "@/lib/content";
 import BgStripper from "@/components/BgStripper";
 
 /**
@@ -208,7 +209,8 @@ const TheSplit = () => {
                             role="link"
                             tabIndex={0}
                             aria-label="Explore Artham Aesthetique"
-                            onClick={() => {
+                            onClick={(event) => {
+                                if (event.target.closest("a")) return;
                                 const el =
                                     document.getElementById("patient-journey");
                                 if (el)
@@ -228,15 +230,21 @@ const TheSplit = () => {
                                         you look confident, feel radiant and
                                         age gracefully.
                                     </p>
-                                    <button
-                                        type="button"
+                                    <a
+                                        href={LINKS.aesthetique}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         data-testid="chapter-aesthetique-cta"
                                         className="btn-artham-primary"
                                         style={{ alignSelf: "flex-start" }}
                                     >
-                                        Explore Aesthetique{" "}
-                                        <span aria-hidden="true">→</span>
-                                    </button>
+                                        Explore Aesthetique
+                                        <ExternalLink
+                                            size={15}
+                                            strokeWidth={1.6}
+                                            aria-hidden="true"
+                                        />
+                                    </a>
                                 </div>
                                 <div className="panel-photo" aria-hidden="true">
                                     <PanelCameo

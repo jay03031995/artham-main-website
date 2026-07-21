@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ASSETS, CONTACT } from "@/lib/content";
+import { ExternalLink, MessageCircle } from "lucide-react";
+import { ASSETS, CONTACT, LINKS } from "@/lib/content";
 
 /**
  * PatientJourney — "Choose Your Care Journey".
@@ -26,6 +27,9 @@ const PatientJourney = () => {
             oneLiner: "Skin, hair, face — the natural, drawn out.",
             image: ASSETS.aestheticsHero,
             testId: "patient-journey-aesth-card",
+            href: LINKS.aesthetique,
+            cta: "Visit Aesthetique",
+            icon: ExternalLink,
         },
         {
             id: "ortho",
@@ -33,6 +37,8 @@ const PatientJourney = () => {
             oneLiner: "Bone, motion, dignity — restored with precision.",
             image: ASSETS.orthocareHero,
             testId: "patient-journey-ortho-card",
+            cta: "Start My Journey",
+            icon: MessageCircle,
         },
     ];
 
@@ -70,11 +76,21 @@ const PatientJourney = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                    {cards.map((c, i) => (
-                        <motion.button
+                    {cards.map((c, i) => {
+                        const Icon = c.icon;
+
+                        return (
+                        <motion.a
                             key={c.id}
                             data-testid={c.testId}
-                            onClick={() => openWhatsApp(c.name)}
+                            href={c.href || "#contact"}
+                            target={c.href ? "_blank" : undefined}
+                            rel={c.href ? "noopener noreferrer" : undefined}
+                            onClick={(event) => {
+                                if (c.href) return;
+                                event.preventDefault();
+                                openWhatsApp(c.name);
+                            }}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-60px" }}
@@ -83,7 +99,7 @@ const PatientJourney = () => {
                                 delay: 0.1 * i,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
-                            className="group relative overflow-hidden aspect-[5/6] text-left bg-black"
+                            className="group relative overflow-hidden aspect-[5/6] text-left bg-black block"
                         >
                             {/* Image */}
                             <img
@@ -111,14 +127,18 @@ const PatientJourney = () => {
                                     {c.oneLiner}
                                 </p>
                                 <div className="inline-flex items-center gap-3 font-secondary text-[11px] uppercase tracking-[0.3em] text-arabian border-b border-arabian/40 pb-2 w-fit group-hover:border-gold group-hover:text-gold transition-colors duration-500">
-                                    Start My Journey
-                                    <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-500">
-                                        →
-                                    </span>
+                                    {c.cta}
+                                    <Icon
+                                        size={15}
+                                        strokeWidth={1.6}
+                                        className="opacity-75 group-hover:translate-x-1 transition-transform duration-500"
+                                        aria-hidden="true"
+                                    />
                                 </div>
                             </div>
-                        </motion.button>
-                    ))}
+                        </motion.a>
+                    );
+                    })}
                 </div>
             </div>
         </section>
