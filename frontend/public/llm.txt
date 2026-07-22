@@ -6,7 +6,7 @@ Artham is a healthcare brand built around soulful, evidence-led care. The site i
 
 ## Website
 
-- Home: https://artham-intro.preview.emergentagent.com/
+- Home: https://theartham.com/
 - Artham Aesthetique: https://arthamaesthetic.com/
 - Artham Orthocare: https://drmanugautam.com/
 
